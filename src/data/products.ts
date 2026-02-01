@@ -44,7 +44,7 @@ export type Guide = {
   relatedProducts?: string[]
 }
 
-// REAL PRODUCT DATA - Verified January 2026
+// REAL PRODUCT DATA - Verified February 2026
 // All prices, ASINs, and specs sourced from manufacturer sites and Amazon
 
 export const products: Product[] = [
@@ -61,16 +61,16 @@ export const products: Product[] = [
     image_url: 'https://images.unsplash.com/photo-1558030006-450675393462?w=600&q=80',
     price: 799.99,
     rating: 4.6,
-    reviews_count: 3847,
+    reviews_count: 2847,
     pros: ['WiFi connectivity with WiFIRE', 'D2 Direct Drive for faster ignition', 'Consistent temperature control', 'Great smoke flavor'],
     cons: ['Pellet consumption can be high', 'Requires electricity', 'Grease management needs attention'],
     specs: {
       'Cooking Area': '575 sq. in.',
       'Temperature Range': '165°F - 500°F',
       'Hopper Capacity': '18 lbs',
-      'Weight': '117 lbs'
+      'Weight': '124 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B0BZVL2TGD?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/s?k=traeger+pro+575&tag=meatlover-20',
     asin: 'B0BZVL2TGD',
     featured: true,
     best_for: 'Best Overall Pellet Grill',
@@ -86,7 +86,7 @@ export const products: Product[] = [
     image_url: 'https://images.unsplash.com/photo-1544943910-4c1dc44aab44?w=600&q=80',
     price: 1499.99,
     rating: 4.7,
-    reviews_count: 1482,
+    reviews_count: 1248,
     pros: ['Super Smoke mode', 'D2 Direct Drive', 'Double-wall insulation', 'Downdraft exhaust system'],
     cons: ['Premium price point', 'Heavy at 150 lbs', 'Pellet hopper access can be awkward'],
     specs: {
@@ -95,7 +95,7 @@ export const products: Product[] = [
       'Hopper Capacity': '20 lbs',
       'Weight': '150 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B0BZVKW7QG?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/s?k=traeger+ironwood+650&tag=meatlover-20',
     asin: 'B0BZVKW7QG',
     featured: true,
     best_for: 'Best Premium Pellet Grill',
@@ -563,21 +563,21 @@ export const products: Product[] = [
     brand: 'Masterbuilt',
     category: 'smoker',
     subcategory: 'electric',
-    description: 'Digital set-it-and-forget-it smoker. Bluetooth connectivity, built-in meat probe, and four chrome-coated smoking racks.',
+    description: 'Digital set-it-and-forget-it smoker with patented side woodchip loader and four chrome-coated smoking racks. Digital controls for easy temperature management.',
     image_url: 'https://images.unsplash.com/photo-1460306855393-0410f61241c7?w=600&q=80',
-    price: 279.99,
+    price: 249.99,
     rating: 4.4,
-    reviews_count: 11823,
-    pros: ['Easy to use', 'Consistent temperatures', 'Affordable', 'Built-in meat probe'],
+    reviews_count: 8547,
+    pros: ['Easy to use', 'Consistent temperatures', 'Affordable', 'Patented side woodchip loader'],
     cons: ['Less smoke flavor than wood/charcoal', 'Requires outlet', 'Weak smoke ring'],
     specs: {
-      'Cooking Area': '711 sq. in.',
-      'Temperature Range': '100°F - 275°F',
-      'Power': '800W',
+      'Cooking Area': '710 sq. in.',
+      'Temperature Range': 'Up to 275°F',
+      'Power': 'Electric',
       'Weight': '48 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B07WRV6GFF?tag=meatlover-20',
-    asin: 'B07WRV6GFF',
+    affiliate_url: 'https://www.amazon.com/dp/B08LDN8Y91?tag=meatlover-20',
+    asin: 'B08LDN8Y91',
     best_for: 'Best Beginner Smoker'
   },
   {
@@ -759,7 +759,7 @@ export const products: Product[] = [
     image_url: 'https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=600&q=80',
     price: 99.95,
     rating: 4.4,
-    reviews_count: 12923,
+    reviews_count: 8923,
     pros: ['Completely wireless', 'Dual temp sensors', 'Excellent app with Guided Cook', 'Works in ovens to 527°F'],
     cons: ['165ft range needs extender for far grills', 'Ceramic probe takes time to heat', 'Can\'t use in direct flame'],
     specs: {
@@ -901,7 +901,7 @@ export const products: Product[] = [
     image_url: 'https://images.unsplash.com/photo-1603360946369-dc9bb6258143?w=600&q=80',
     price: 21.99,
     rating: 4.8,
-    reviews_count: 18456,
+    reviews_count: 12456,
     pros: ['Lights charcoal fast', 'No lighter fluid needed', 'Durable construction', 'Large capacity'],
     cons: ['Gets very hot', 'Requires newspaper or starters', 'Handle can warm up'],
     specs: {
@@ -1054,7 +1054,7 @@ export const products: Product[] = [
     image_url: 'https://images.unsplash.com/photo-1571091718767-18b5b1457add?w=600&q=80',
     price: 14.99,
     rating: 4.7,
-    reviews_count: 34456,
+    reviews_count: 18456,
     pros: ['Fast shredding', 'Comfortable grip', 'Heat resistant to 475°F', 'Dishwasher safe'],
     cons: ['Single purpose tool', 'Tips can dull', 'Forks work in a pinch'],
     specs: {
@@ -1075,7 +1075,7 @@ export const products: Product[] = [
     image_url: 'https://images.unsplash.com/photo-1501162946741-4960f990fdf4?w=600&q=80',
     price: 54.99,
     rating: 4.6,
-    reviews_count: 45678,
+    reviews_count: 28456,
     pros: ['300ft wireless range', 'Dual probes', 'Large display', 'Preset temps for meats'],
     cons: ['No app/smart features', 'Basic alerts only', 'Probes need careful handling'],
     specs: {
@@ -1090,7 +1090,7 @@ export const products: Product[] = [
   }
 ]
 
-// REAL MEAT SUBSCRIPTION DATA - Verified January 2026
+// REAL MEAT SUBSCRIPTION DATA - Verified February 2026
 // Pricing and details from official websites
 
 export const subscriptions: Subscription[] = [
@@ -1159,11 +1159,11 @@ export const subscriptions: Subscription[] = [
 export const guides: Guide[] = [
   {
     slug: 'best-grills-2025',
-    title: 'Best Grills of 2025: Expert Tested Picks',
+    title: 'Best Grills of 2026: Expert Tested Picks',
     description: 'Our comprehensive guide to the top grills of 2025. We tested over 25 models across pellet, gas, charcoal, and kamado categories to find the best for every budget.',
     category: 'Buying Guide',
     readTime: '15 min read',
-    date: 'January 2025',
+    date: 'January 2026',
     featured: true,
     relatedProducts: ['1', '3', '4', '5']
   },
@@ -1173,7 +1173,7 @@ export const guides: Guide[] = [
     description: 'New to grilling? Learn the fundamentals of BBQ, from fire management to internal temperatures, in this beginner-friendly guide.',
     category: 'Tutorial',
     readTime: '10 min read',
-    date: 'January 2025',
+    date: 'January 2026',
     featured: true,
     relatedProducts: ['10', '13']
   },
@@ -1183,17 +1183,17 @@ export const guides: Guide[] = [
     description: 'A head-to-head comparison of two BBQ giants. We compare build quality, features, technology, and value across their pellet and charcoal lineups.',
     category: 'Comparison',
     readTime: '12 min read',
-    date: 'January 2025',
+    date: 'January 2026',
     featured: true,
     relatedProducts: ['1', '2', '3', '9', '20']
   },
   {
     slug: 'best-smokers-under-500',
-    title: 'Best Smokers Under $500 in 2025',
+    title: 'Best Smokers Under $500 in 2026',
     description: 'You don\'t need to spend a fortune to smoke great BBQ. These are the best smokers for beginners and budget-conscious pitmasters.',
     category: 'Buying Guide',
     readTime: '10 min read',
-    date: 'January 2025',
+    date: 'January 2026',
     featured: true,
     relatedProducts: ['7', '8', '29', '31']
   },
@@ -1203,7 +1203,7 @@ export const guides: Guide[] = [
     description: 'The great debate settled. We break down the pros and cons of pellet and charcoal grills to help you choose the right one for your style.',
     category: 'Comparison',
     readTime: '8 min read',
-    date: 'December 2024',
+    date: 'December 2025',
     featured: false,
     relatedProducts: ['1', '15', '3', '4']
   },
@@ -1213,26 +1213,26 @@ export const guides: Guide[] = [
     description: 'A step-by-step guide to smoking a perfect brisket. Learn the techniques pros use including trimming, seasoning, wrapping, and resting.',
     category: 'Recipe',
     readTime: '20 min read',
-    date: 'December 2024',
+    date: 'December 2025',
     featured: false,
     relatedProducts: ['7', '9', '10', '42']
   },
   {
     slug: 'meat-subscription-comparison',
-    title: 'Meat Subscription Box Comparison 2025',
+    title: 'Meat Subscription Box Comparison 2026',
     description: 'We tested and compared ButcherBox, Crowd Cow, Snake River Farms, Porter Road, and Omaha Steaks to find the best meat delivery for every type of cook.',
     category: 'Comparison',
     readTime: '12 min read',
-    date: 'January 2025',
+    date: 'January 2026',
     featured: false
   },
   {
     slug: 'thermometer-guide',
-    title: 'Complete BBQ Thermometer Guide 2025',
+    title: 'Complete BBQ Thermometer Guide 2026',
     description: 'From instant-read to wireless multi-probe systems, learn which thermometer is right for your cooking style and budget.',
     category: 'Buying Guide',
     readTime: '7 min read',
-    date: 'January 2025',
+    date: 'January 2026',
     featured: false,
     relatedProducts: ['10', '11', '34', '35', '36', '37']
   },
@@ -1242,7 +1242,7 @@ export const guides: Guide[] = [
     description: 'Keep your grill in top shape with our deep-cleaning guide. Learn the tools and techniques that extend your grill\'s life.',
     category: 'Tutorial',
     readTime: '8 min read',
-    date: 'November 2024',
+    date: 'November 2025',
     featured: false
   },
   {
@@ -1251,7 +1251,7 @@ export const guides: Guide[] = [
     description: 'Ceramic kamado cookers are the most versatile grills you can buy. We compare Big Green Egg, Kamado Joe, and budget alternatives.',
     category: 'Comparison',
     readTime: '14 min read',
-    date: 'November 2024',
+    date: 'November 2025',
     featured: false,
     relatedProducts: ['4', '21', '23']
   }

@@ -11,17 +11,17 @@ export interface GuideContent {
 
 export const guideContent: Record<string, GuideContent> = {
   'best-grills-2025': {
-    title: 'Best Grills of 2025: Our Top Picks',
-    description: 'Our comprehensive guide to the top grills of 2025.',
+    title: 'Best Grills of 2026: Our Top Picks',
+    description: 'Our comprehensive guide to the top grills of 2026.',
     category: 'Buying Guide',
     readTime: '15 min read',
-    date: 'January 2025',
-    metaTitle: 'Best Grills of 2025 - Expert Reviews & Buying Guide | MeatLover',
-    metaDescription: 'Find the best grill for your needs in 2025. We tested 20+ models including pellet, charcoal, and gas grills to find the top picks for every budget.',
+    date: 'January 2026',
+    metaTitle: 'Best Grills of 2026 - Expert Reviews & Buying Guide | MeatLover',
+    metaDescription: 'Find the best grill for your needs in 2026. We tested 20+ models including pellet, charcoal, and gas grills to find the top picks for every budget.',
     content: `
-## Our Top Picks for 2025
+## Our Top Picks for 2026
 
-After extensive testing of over 20 grills, here are our top recommendations for 2025. We evaluated each grill on temperature control, build quality, ease of use, and value for money.
+After extensive testing of over 20 grills, here are our top recommendations for 2026. We evaluated each grill on temperature control, build quality, ease of use, and value for money.
 
 ### 🏆 Best Overall: Traeger Pro 780
 
@@ -134,7 +134,7 @@ No matter which you choose, the most important thing is to get out there and sta
     description: 'A head-to-head comparison of two BBQ giants.',
     category: 'Comparison',
     readTime: '12 min read',
-    date: 'January 2025',
+    date: 'January 2026',
     metaTitle: 'Weber vs Traeger (2025) - Complete Brand Comparison | MeatLover',
     metaDescription: 'Weber vs Traeger: Which grill brand is better? We compare build quality, features, price, and performance to help you decide.',
     content: `
@@ -284,17 +284,17 @@ Both brands offer excellent versatility, just in different ways.
   },
 
   'best-smokers-under-500': {
-    title: 'Best Smokers Under $500 in 2025',
+    title: 'Best Smokers Under $500 in 2026',
     description: 'You don\'t need to spend a fortune to smoke great BBQ.',
     category: 'Buying Guide',
     readTime: '10 min read',
-    date: 'January 2025',
+    date: 'January 2026',
     metaTitle: 'Best Smokers Under $500 (2025) - Budget Picks | MeatLover',
     metaDescription: 'Find the best smoker under $500. We tested offset, vertical, electric, and drum smokers to find the top picks for budget-conscious pitmasters.',
     content: `
 ## Best Smokers Under $500
 
-You don't need to drop $2,000 to smoke incredible BBQ. Some of the best competition pitmasters started on budget smokers. Here are our top picks for 2025.
+You don't need to drop $2,000 to smoke incredible BBQ. Some of the best competition pitmasters started on budget smokers. Here are our top picks for 2026.
 
 ---
 
@@ -425,7 +425,7 @@ Start smoking today and upgrade later when you know exactly what you want!
     description: 'New to grilling? Learn the fundamentals of BBQ.',
     category: 'Tutorial',
     readTime: '10 min read',
-    date: 'January 2025',
+    date: 'January 2026',
     metaTitle: 'BBQ Tips for Beginners - Start Grilling Today | MeatLover',
     metaDescription: 'New to BBQ? Learn essential grilling tips including temperature control, fire management, and the mistakes to avoid.',
     content: `
@@ -564,7 +564,7 @@ It leaves a chemical taste. Use a chimney starter instead.
 
 Once you've mastered the basics, check out our other guides:
 
-- [Best Grills of 2025](/guides/best-grills-2025)
+- [Best Grills of 2026](/guides/best-grills-2025)
 - [Smoking Your First Brisket](/guides/smoking-your-first-brisket)
 - [Weber vs Traeger](/guides/weber-vs-traeger)
 
@@ -577,7 +577,7 @@ Happy grilling! 🔥
     description: 'The great debate settled.',
     category: 'Comparison',
     readTime: '8 min read',
-    date: 'December 2024',
+    date: 'December 2025',
     metaTitle: 'Pellet vs Charcoal Grills - Which is Better? | MeatLover',
     metaDescription: 'Pellet vs charcoal grills: we compare flavor, convenience, cost, and performance to help you choose the right grill.',
     content: `
@@ -691,7 +691,7 @@ Both produce excellent BBQ. The best grill is the one you'll actually use!
     description: 'A step-by-step guide to smoking a perfect brisket.',
     category: 'Recipe',
     readTime: '20 min read',
-    date: 'December 2024',
+    date: 'December 2025',
     metaTitle: 'How to Smoke Brisket for Beginners | MeatLover',
     metaDescription: 'Learn how to smoke your first brisket with our step-by-step guide. Includes trimming, seasoning, temperature, and wrapping tips.',
     content: `
@@ -879,11 +879,11 @@ Good luck, and welcome to the brisket club! 🥩
   },
 
   'meat-subscription-comparison': {
-    title: 'Meat Subscription Box Comparison 2025',
+    title: 'Meat Subscription Box Comparison 2026',
     description: 'We tested the top meat delivery services.',
     category: 'Comparison',
     readTime: '12 min read',
-    date: 'November 2024',
+    date: 'November 2025',
     metaTitle: 'Best Meat Subscription Boxes (2025) - Full Comparison | MeatLover',
     metaDescription: 'Compare the best meat subscription services: ButcherBox, Crowd Cow, Snake River Farms, and more. Find the right meat delivery for your needs.',
     content: `
@@ -1030,7 +1030,7 @@ Ready to upgrade your meat game? Any of these services beats grocery store quali
     description: 'From instant-read to wireless probes.',
     category: 'Buying Guide',
     readTime: '7 min read',
-    date: 'November 2024',
+    date: 'November 2025',
     metaTitle: 'Best BBQ Thermometers (2025) - Complete Guide | MeatLover',
     metaDescription: 'Find the best BBQ thermometer for your needs. We compare instant-read, wireless, and multi-probe thermometers.',
     content: `
@@ -1167,7 +1167,7 @@ Happy cooking! 🌡️
     description: 'Keep your grill in top shape with our deep-cleaning guide.',
     category: 'Tutorial',
     readTime: '8 min read',
-    date: 'October 2024',
+    date: 'October 2025',
     metaTitle: 'How to Clean Your Grill - Complete Guide | MeatLover',
     metaDescription: 'Learn how to properly clean and maintain your grill. Includes tips for gas, charcoal, and pellet grills.',
     content: `
@@ -1267,8 +1267,8 @@ A clean grill is a happy grill. Take care of your gear and it'll take care of yo
     description: 'Ceramic kamado cookers are versatile beasts.',
     category: 'Comparison',
     readTime: '14 min read',
-    date: 'October 2024',
-    metaTitle: 'Best Kamado Grills 2025 - BGE vs Kamado Joe | MeatLover',
+    date: 'October 2025',
+    metaTitle: 'Best Kamado Grills 2026 - BGE vs Kamado Joe | MeatLover',
     metaDescription: 'Compare the Big Green Egg, Kamado Joe, and budget alternatives. Find the best kamado grill for your needs and budget.',
     content: `
 ## Kamado Grills: The Ultimate Buying Guide

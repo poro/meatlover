@@ -15,7 +15,7 @@ export default function MeatDeliveryPage() {
       <section className="bg-gradient-to-r from-neutral-900 via-red-950/30 to-neutral-900 py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Badge className="bg-red-500/20 text-red-400 border-red-500/50 mb-4">
-            Updated January 2025
+            Updated February 2026
           </Badge>
           <h1 className="text-4xl font-bold text-white mb-4">🥩 Best Meat Delivery Services</h1>
           <p className="text-neutral-300 max-w-2xl">
