@@ -1,0 +1,1081 @@
+import puppeteer from 'puppeteer';
+import fs from 'fs';
+import path from 'path';
+
+const recipeBookHTML = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600;700&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      color: #1a1a1a;
+      line-height: 1.6;
+      background: #fff;
+    }
+    
+    .page {
+      page-break-after: always;
+      padding: 60px;
+      min-height: 100vh;
+    }
+    
+    .page:last-child {
+      page-break-after: avoid;
+    }
+    
+    /* Cover Page */
+    .cover {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 50%, #1a1a1a 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cover::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ff6b00' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    
+    .cover h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 72px;
+      font-weight: 900;
+      margin-bottom: 20px;
+      text-shadow: 0 4px 20px rgba(255, 107, 0, 0.3);
+      position: relative;
+    }
+    
+    .cover .subtitle {
+      font-size: 24px;
+      color: #f97316;
+      font-weight: 600;
+      margin-bottom: 40px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+    }
+    
+    .cover .tagline {
+      font-size: 18px;
+      color: #999;
+      max-width: 500px;
+    }
+    
+    .fire-icon {
+      font-size: 80px;
+      margin-bottom: 30px;
+    }
+    
+    .cover .brand {
+      position: absolute;
+      bottom: 60px;
+      font-size: 14px;
+      color: #666;
+      letter-spacing: 2px;
+    }
+    
+    /* TOC Page */
+    .toc {
+      background: #fafafa;
+    }
+    
+    .toc h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: #1a1a1a;
+      margin-bottom: 40px;
+      padding-bottom: 20px;
+      border-bottom: 3px solid #f97316;
+    }
+    
+    .toc-section {
+      margin-bottom: 30px;
+    }
+    
+    .toc-section h3 {
+      font-size: 18px;
+      color: #f97316;
+      font-weight: 700;
+      margin-bottom: 15px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    .toc-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px dashed #ddd;
+    }
+    
+    .toc-item span:first-child {
+      font-weight: 500;
+    }
+    
+    .toc-item span:last-child {
+      color: #666;
+      font-weight: 600;
+    }
+    
+    /* Recipe Pages */
+    .recipe-page {
+      background: #fff;
+    }
+    
+    .recipe-header {
+      margin-bottom: 40px;
+      padding-bottom: 30px;
+      border-bottom: 2px solid #f97316;
+    }
+    
+    .recipe-category {
+      font-size: 12px;
+      color: #f97316;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 10px;
+    }
+    
+    .recipe-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: #1a1a1a;
+      margin-bottom: 15px;
+    }
+    
+    .recipe-meta {
+      display: flex;
+      gap: 30px;
+      color: #666;
+      font-size: 14px;
+    }
+    
+    .recipe-meta strong {
+      color: #1a1a1a;
+    }
+    
+    .recipe-description {
+      font-size: 18px;
+      color: #444;
+      font-style: italic;
+      margin-bottom: 30px;
+      line-height: 1.8;
+    }
+    
+    .recipe-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 50px;
+    }
+    
+    .ingredients h3, .instructions h3 {
+      font-size: 18px;
+      color: #f97316;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #f0f0f0;
+    }
+    
+    .ingredients ul {
+      list-style: none;
+    }
+    
+    .ingredients li {
+      padding: 8px 0;
+      padding-left: 20px;
+      position: relative;
+      border-bottom: 1px dotted #eee;
+    }
+    
+    .ingredients li::before {
+      content: '•';
+      color: #f97316;
+      font-size: 18px;
+      position: absolute;
+      left: 0;
+    }
+    
+    .instructions ol {
+      list-style: none;
+      counter-reset: step;
+    }
+    
+    .instructions li {
+      padding: 15px 0;
+      padding-left: 50px;
+      position: relative;
+      border-bottom: 1px solid #f5f5f5;
+      counter-increment: step;
+    }
+    
+    .instructions li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 12px;
+      width: 32px;
+      height: 32px;
+      background: #f97316;
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    
+    .pro-tips {
+      background: linear-gradient(135deg, #fff7ed 0%, #ffedd5 100%);
+      padding: 25px;
+      border-radius: 12px;
+      margin-top: 30px;
+      border-left: 4px solid #f97316;
+    }
+    
+    .pro-tips h4 {
+      color: #c2410c;
+      font-weight: 700;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .pro-tips ul {
+      list-style: none;
+    }
+    
+    .pro-tips li {
+      padding: 6px 0;
+      color: #9a3412;
+      padding-left: 20px;
+      position: relative;
+    }
+    
+    .pro-tips li::before {
+      content: '🔥';
+      position: absolute;
+      left: 0;
+    }
+    
+    /* Section Divider */
+    .section-divider {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .section-divider h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      margin-bottom: 20px;
+    }
+    
+    .section-divider p {
+      color: #f97316;
+      font-size: 18px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+    
+    /* Back Cover */
+    .back-cover {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d1810 100%);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .back-cover h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      margin-bottom: 30px;
+    }
+    
+    .back-cover p {
+      color: #999;
+      max-width: 400px;
+      margin-bottom: 40px;
+    }
+    
+    .back-cover .cta {
+      background: #f97316;
+      color: white;
+      padding: 15px 40px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    
+    .back-cover .website {
+      margin-top: 60px;
+      color: #666;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Cover Page -->
+  <div class="page cover">
+    <div class="fire-icon">🔥</div>
+    <h1>The Pitmaster<br>Recipe Book</h1>
+    <div class="subtitle">Competition-Winning BBQ</div>
+    <p class="tagline">15 essential recipes from award-winning pitmasters to elevate your backyard BBQ to championship level</p>
+    <div class="brand">MEATLOVER.COM</div>
+  </div>
+  
+  <!-- Table of Contents -->
+  <div class="page toc">
+    <h2>Table of Contents</h2>
+    
+    <div class="toc-section">
+      <h3>🥩 Main Courses</h3>
+      <div class="toc-item"><span>Texas-Style Brisket</span><span>3</span></div>
+      <div class="toc-item"><span>Competition Ribs (3-2-1 Method)</span><span>5</span></div>
+      <div class="toc-item"><span>Classic Pulled Pork</span><span>7</span></div>
+      <div class="toc-item"><span>Smoked Whole Chicken</span><span>9</span></div>
+      <div class="toc-item"><span>Kansas City Burnt Ends</span><span>11</span></div>
+      <div class="toc-item"><span>Brisket Street Tacos</span><span>13</span></div>
+    </div>
+    
+    <div class="toc-section">
+      <h3>🍖 Sides</h3>
+      <div class="toc-item"><span>Smoked Mac and Cheese</span><span>15</span></div>
+      <div class="toc-item"><span>Pitmaster Baked Beans</span><span>17</span></div>
+    </div>
+    
+    <div class="toc-section">
+      <h3>🧂 Rubs & Seasonings</h3>
+      <div class="toc-item"><span>All-Purpose BBQ Rub</span><span>19</span></div>
+      <div class="toc-item"><span>Texas Brisket Rub</span><span>19</span></div>
+      <div class="toc-item"><span>Memphis Dry Rub</span><span>20</span></div>
+    </div>
+    
+    <div class="toc-section">
+      <h3>🍯 Sauces</h3>
+      <div class="toc-item"><span>Classic Kansas City BBQ Sauce</span><span>21</span></div>
+      <div class="toc-item"><span>Carolina Vinegar Sauce</span><span>22</span></div>
+      <div class="toc-item"><span>Alabama White Sauce</span><span>22</span></div>
+    </div>
+  </div>
+  
+  <!-- Recipe 1: Texas Brisket -->
+  <div class="page recipe-page">
+    <div class="recipe-header">
+      <div class="recipe-category">Main Course</div>
+      <h1 class="recipe-title">Texas-Style Brisket</h1>
+      <div class="recipe-meta">
+        <span><strong>Prep:</strong> 30 min</span>
+        <span><strong>Cook:</strong> 12-16 hours</span>
+        <span><strong>Temp:</strong> 225-250°F</span>
+        <span><strong>Serves:</strong> 12-15</span>
+      </div>
+    </div>
+    
+    <p class="recipe-description">The holy grail of BBQ. True Texas brisket keeps it simple—just salt, pepper, smoke, and time. This is the recipe that wins championships.</p>
+    
+    <div class="recipe-grid">
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+        <ul>
+          <li>1 whole packer brisket (12-15 lbs)</li>
+          <li>1/2 cup coarse black pepper</li>
+          <li>1/2 cup coarse kosher salt</li>
+          <li>2 tbsp garlic powder (optional)</li>
+          <li>Yellow mustard (as binder)</li>
+          <li>Post oak or hickory wood chunks</li>
+          <li>Beef tallow (for wrapping)</li>
+          <li>Pink butcher paper</li>
+        </ul>
+      </div>
+      
+      <div class="instructions">
+        <h3>Instructions</h3>
+        <ol>
+          <li><strong>Trim the brisket:</strong> Remove hard fat, leaving 1/4" fat cap. Square off edges and remove any silver skin from the flat.</li>
+          <li><strong>Apply binder & rub:</strong> Coat with thin layer of mustard. Mix salt and pepper 1:1 and apply liberally on all sides. Let rest 1 hour or overnight in fridge.</li>
+          <li><strong>Prep your smoker:</strong> Bring to 225-250°F with clean smoke. Fat side down for offset smokers, fat side up for pellet/vertical smokers.</li>
+          <li><strong>The cook:</strong> Smoke for 6-8 hours until bark is set and internal temp hits 165-170°F. This is the stall—don't panic.</li>
+          <li><strong>Wrap it:</strong> When bark is mahogany, wrap in butcher paper with a few tablespoons of tallow. Return to smoker.</li>
+          <li><strong>The finish:</strong> Cook until probe tender (feels like butter), usually 200-205°F internal. Total cook: 12-16 hours.</li>
+          <li><strong>Rest:</strong> Rest in cooler for 1-2 hours minimum. Slice against the grain, point and flat separately.</li>
+        </ol>
+      </div>
+    </div>
+    
+    <div class="pro-tips">
+      <h4>🏆 Pro Tips</h4>
+      <ul>
+        <li>Choose USDA Prime or high-quality Choice for best marbling</li>
+        <li>The stall is your friend—it means the bark is setting</li>
+        <li>Probe test multiple spots—when it slides in like butter, you're done</li>
+        <li>Never skip the rest. 2 hours minimum, 4 hours is better</li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Recipe 2: Competition Ribs -->
+  <div class="page recipe-page">
+    <div class="recipe-header">
+      <div class="recipe-category">Main Course</div>
+      <h1 class="recipe-title">Competition Ribs</h1>
+      <div class="recipe-meta">
+        <span><strong>Prep:</strong> 20 min</span>
+        <span><strong>Cook:</strong> 6 hours</span>
+        <span><strong>Temp:</strong> 225-275°F</span>
+        <span><strong>Serves:</strong> 4-6</span>
+      </div>
+    </div>
+    
+    <p class="recipe-description">The famous 3-2-1 method produces perfect fall-off-the-bone ribs every single time. This is the competition-proven technique.</p>
+    
+    <div class="recipe-grid">
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+        <ul>
+          <li>2 racks St. Louis-style spare ribs</li>
+          <li>1/2 cup All-Purpose BBQ Rub (page 19)</li>
+          <li>Yellow mustard (as binder)</li>
+          <li>1/2 cup brown sugar</li>
+          <li>4 tbsp butter</li>
+          <li>1/4 cup honey</li>
+          <li>1 cup apple juice</li>
+          <li>Your favorite BBQ sauce</li>
+          <li>Apple or cherry wood chunks</li>
+        </ul>
+      </div>
+      
+      <div class="instructions">
+        <h3>Instructions</h3>
+        <ol>
+          <li><strong>Prep ribs:</strong> Remove membrane from bone side. Apply mustard binder then coat generously with rub. Let sit 30 min or overnight.</li>
+          <li><strong>Phase 1 - Smoke (3 hours):</strong> Smoke at 225°F bone-side down. Spritz with apple juice every 45 min after first 2 hours.</li>
+          <li><strong>Phase 2 - Wrap (2 hours):</strong> Lay ribs meat-side down on foil. Add butter, brown sugar, honey. Wrap tightly. Return to smoker at 275°F.</li>
+          <li><strong>Phase 3 - Glaze (1 hour):</strong> Unwrap ribs, meat-side up. Brush with BBQ sauce. Return to smoker at 250°F to set glaze.</li>
+          <li><strong>Test for doneness:</strong> Ribs should bend when picked up with tongs. Bone should twist easily but not fall out.</li>
+          <li><strong>Rest & serve:</strong> Rest 10 min, slice between bones, and serve with extra sauce on the side.</li>
+        </ol>
+      </div>
+    </div>
+    
+    <div class="pro-tips">
+      <h4>🏆 Pro Tips</h4>
+      <ul>
+        <li>St. Louis cut ribs are more uniform than baby backs—better for competitions</li>
+        <li>Don't want fall-off-the-bone? Try 3-1.5-0.5 for more bite</li>
+        <li>Apply sauce in thin layers—3 light coats beats 1 heavy coat</li>
+        <li>Let them rest before cutting or all the juices run out</li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Recipe 3: Pulled Pork -->
+  <div class="page recipe-page">
+    <div class="recipe-header">
+      <div class="recipe-category">Main Course</div>
+      <h1 class="recipe-title">Classic Pulled Pork</h1>
+      <div class="recipe-meta">
+        <span><strong>Prep:</strong> 20 min</span>
+        <span><strong>Cook:</strong> 10-14 hours</span>
+        <span><strong>Temp:</strong> 225-250°F</span>
+        <span><strong>Serves:</strong> 15-20</span>
+      </div>
+    </div>
+    
+    <p class="recipe-description">Nothing feeds a crowd like a beautiful pork butt. Low and slow transforms this tough cut into the most tender, flavorful pulled pork you've ever tasted.</p>
+    
+    <div class="recipe-grid">
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+        <ul>
+          <li>1 bone-in pork butt/shoulder (8-10 lbs)</li>
+          <li>1/2 cup All-Purpose BBQ Rub</li>
+          <li>2 tbsp paprika</li>
+          <li>Yellow mustard (binder)</li>
+          <li>1 cup apple cider vinegar</li>
+          <li>1 cup apple juice (for spritzing)</li>
+          <li>Hickory or apple wood chunks</li>
+        </ul>
+      </div>
+      
+      <div class="instructions">
+        <h3>Instructions</h3>
+        <ol>
+          <li><strong>Prep the butt:</strong> Trim excess fat to 1/4". Score fat cap in crosshatch pattern. Apply mustard, then rub generously all over.</li>
+          <li><strong>Into the smoker:</strong> Fat cap up at 225°F. Don't open for first 3 hours—let bark develop.</li>
+          <li><strong>Spritz & wait:</strong> After 3 hours, spritz every hour with apple juice/vinegar mix. The stall will hit around 160°F.</li>
+          <li><strong>Optional wrap:</strong> At 165°F, wrap in foil or butcher paper to power through stall. Or just ride it out unwrapped for better bark.</li>
+          <li><strong>Probe test:</strong> It's done when probe slides in like butter, usually 200-205°F. Total time: 10-14 hours.</li>
+          <li><strong>Rest & pull:</strong> Rest 1-2 hours in cooler. Pull by hand or with forks. Mix bark pieces throughout. Sauce optional.</li>
+        </ol>
+      </div>
+    </div>
+    
+    <div class="pro-tips">
+      <h4>🏆 Pro Tips</h4>
+      <ul>
+        <li>Bone-in has more flavor and tells you when it's done (bone should wiggle)</li>
+        <li>Save the drippings—mix them back in when pulling for extra moisture</li>
+        <li>Don't over-sauce! Let people add their own</li>
+        <li>Pulled pork freezes beautifully for up to 3 months</li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Recipe 4: Smoked Chicken -->
+  <div class="page recipe-page">
+    <div class="recipe-header">
+      <div class="recipe-category">Main Course</div>
+      <h1 class="recipe-title">Smoked Whole Chicken</h1>
+      <div class="recipe-meta">
+        <span><strong>Prep:</strong> 15 min</span>
+        <span><strong>Cook:</strong> 3-4 hours</span>
+        <span><strong>Temp:</strong> 275-325°F</span>
+        <span><strong>Serves:</strong> 4-6</span>
+      </div>
+    </div>
+    
+    <p class="recipe-description">Smoked chicken is the gateway to BBQ glory. Quick cook time, incredible flavor, and perfect for weeknight dinners. The key? Crispy skin with juicy meat.</p>
+    
+    <div class="recipe-grid">
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+        <ul>
+          <li>1 whole chicken (4-5 lbs)</li>
+          <li>3 tbsp olive oil or melted butter</li>
+          <li>1/4 cup All-Purpose BBQ Rub</li>
+          <li>1 tsp baking powder</li>
+          <li>1 lemon, halved</li>
+          <li>4 garlic cloves</li>
+          <li>Fresh thyme & rosemary</li>
+          <li>Apple or cherry wood chunks</li>
+        </ul>
+      </div>
+      
+      <div class="instructions">
+        <h3>Instructions</h3>
+        <ol>
+          <li><strong>Prep the bird:</strong> Pat completely dry with paper towels. Remove giblets. Tuck wing tips under.</li>
+          <li><strong>Season:</strong> Rub with oil, then apply rub mixed with baking powder (this helps crisp the skin). Season under skin too.</li>
+          <li><strong>Stuff the cavity:</strong> Add lemon halves, garlic, and herbs inside. Don't truss—air needs to circulate.</li>
+          <li><strong>Smoke high:</strong> Cook at 275-325°F. Higher temp = crispier skin. Takes about 3-4 hours.</li>
+          <li><strong>Temp check:</strong> Done at 165°F in thickest part of breast, 175°F in thigh. Let probe slide in easily.</li>
+          <li><strong>Optional crisp:</strong> Crank to 400°F for last 10 min or finish under broiler for extra crispy skin.</li>
+          <li><strong>Rest:</strong> Rest 15 min before carving. Don't skip—juices need to redistribute.</li>
+        </ol>
+      </div>
+    </div>
+    
+    <div class="pro-tips">
+      <h4>🏆 Pro Tips</h4>
+      <ul>
+        <li>Dry brine overnight—1 tsp salt per lb, uncovered in fridge for crispiest skin</li>
+        <li>Spatchcock for even faster cooking and crispier skin</li>
+        <li>Use a beer can or chicken throne for vertical cooking</li>
+        <li>Fruit woods (apple, cherry) are perfect for poultry</li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Recipe 5: Burnt Ends -->
+  <div class="page recipe-page">
+    <div class="recipe-header">
+      <div class="recipe-category">Main Course</div>
+      <h1 class="recipe-title">Kansas City Burnt Ends</h1>
+      <div class="recipe-meta">
+        <span><strong>Prep:</strong> 30 min</span>
+        <span><strong>Cook:</strong> 14-18 hours</span>
+        <span><strong>Temp:</strong> 225-275°F</span>
+        <span><strong>Serves:</strong> 8-10</span>
+      </div>
+    </div>
+    
+    <p class="recipe-description">The meat candy of BBQ. These little cubes of brisket point are caramelized, sticky, and dangerously addictive. Worth every minute of the cook.</p>
+    
+    <div class="recipe-grid">
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+        <ul>
+          <li>1 whole packer brisket point (5-7 lbs)</li>
+          <li>1/2 cup Texas Brisket Rub (page 19)</li>
+          <li>Yellow mustard (binder)</li>
+          <li>1 cup BBQ sauce</li>
+          <li>4 tbsp butter, cubed</li>
+          <li>1/2 cup brown sugar</li>
+          <li>2 tbsp hot honey</li>
+          <li>Oak or hickory wood chunks</li>
+        </ul>
+      </div>
+      
+      <div class="instructions">
+        <h3>Instructions</h3>
+        <ol>
+          <li><strong>Prep the point:</strong> Separate point from flat if using full packer. Trim, apply mustard, season heavily with rub.</li>
+          <li><strong>First smoke:</strong> Smoke at 225°F for 6-8 hours until internal temp reaches 165-170°F and bark is set.</li>
+          <li><strong>Wrap & continue:</strong> Wrap in butcher paper. Continue smoking until 195°F internal, about 4-5 more hours.</li>
+          <li><strong>Cube it:</strong> When probe tender, remove and rest 30 min. Cut into 1-1.5" cubes.</li>
+          <li><strong>The sauce:</strong> Toss cubes with BBQ sauce, butter, brown sugar, and hot honey. Place in foil pan.</li>
+          <li><strong>Final smoke:</strong> Return uncovered pan to smoker at 275°F for 1-2 hours, stirring every 30 min until sticky and caramelized.</li>
+        </ol>
+      </div>
+    </div>
+    
+    <div class="pro-tips">
+      <h4>🏆 Pro Tips</h4>
+      <ul>
+        <li>The point has more fat = more tender burnt ends. Don't use the flat.</li>
+        <li>Cut cubes WITH the grain—they hold together better</li>
+        <li>Stir gently during final phase to prevent breaking apart</li>
+        <li>Serve immediately—they don't hold well</li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Recipe 6: Brisket Tacos -->
+  <div class="page recipe-page">
+    <div class="recipe-header">
+      <div class="recipe-category">Main Course</div>
+      <h1 class="recipe-title">Brisket Street Tacos</h1>
+      <div class="recipe-meta">
+        <span><strong>Prep:</strong> 20 min</span>
+        <span><strong>Cook:</strong> 5 min (using leftover brisket)</span>
+        <span><strong>Temp:</strong> High heat for tortillas</span>
+        <span><strong>Serves:</strong> 8-10 tacos</span>
+      </div>
+    </div>
+    
+    <p class="recipe-description">The perfect way to use leftover brisket. Fresh tortillas, tangy pickled onions, and that smoky brisket create taco perfection.</p>
+    
+    <div class="recipe-grid">
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+        <ul>
+          <li>1 lb leftover brisket, chopped</li>
+          <li>12 small corn tortillas</li>
+          <li>1 cup pickled red onions</li>
+          <li>1/2 cup fresh cilantro, chopped</li>
+          <li>1 avocado, sliced</li>
+          <li>Lime wedges</li>
+          <li>Cotija cheese, crumbled</li>
+          <li>Salsa verde or your favorite salsa</li>
+          <li><strong>For pickled onions:</strong></li>
+          <li>1 red onion, thinly sliced</li>
+          <li>1/2 cup lime juice</li>
+          <li>1 tsp salt, 1 tsp sugar</li>
+        </ul>
+      </div>
+      
+      <div class="instructions">
+        <h3>Instructions</h3>
+        <ol>
+          <li><strong>Pickle the onions:</strong> Combine onion, lime juice, salt, and sugar. Let sit 30 min minimum (overnight is better).</li>
+          <li><strong>Reheat brisket:</strong> Chop brisket into small pieces. Warm in skillet with a splash of beef broth or brisket drippings.</li>
+          <li><strong>Warm tortillas:</strong> Heat dry skillet over high heat. Warm tortillas 30 sec per side until slightly charred. Stack and cover.</li>
+          <li><strong>Assemble:</strong> Double up tortillas. Add brisket, pickled onions, cilantro, avocado, and cotija.</li>
+          <li><strong>Finish:</strong> Squeeze lime over top, add salsa. Serve immediately with extra pickled onions on the side.</li>
+        </ol>
+      </div>
+    </div>
+    
+    <div class="pro-tips">
+      <h4>🏆 Pro Tips</h4>
+      <ul>
+        <li>Use a mix of point and flat for best texture variety</li>
+        <li>Make pickled onions the day before—they only get better</li>
+        <li>Corn tortillas are traditional, but flour works if you prefer</li>
+        <li>Add a drizzle of Alabama white sauce for a fusion twist</li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Section Divider: Sides -->
+  <div class="page section-divider">
+    <h2>🍖 Sides</h2>
+    <p>Every great BBQ needs legendary sides</p>
+  </div>
+  
+  <!-- Recipe 7: Smoked Mac & Cheese -->
+  <div class="page recipe-page">
+    <div class="recipe-header">
+      <div class="recipe-category">Side Dish</div>
+      <h1 class="recipe-title">Smoked Mac and Cheese</h1>
+      <div class="recipe-meta">
+        <span><strong>Prep:</strong> 20 min</span>
+        <span><strong>Cook:</strong> 1.5 hours</span>
+        <span><strong>Temp:</strong> 225-250°F</span>
+        <span><strong>Serves:</strong> 10-12</span>
+      </div>
+    </div>
+    
+    <p class="recipe-description">Regular mac and cheese is good. Smoked mac and cheese is legendary. That kiss of smoke transforms this comfort food classic into something unforgettable.</p>
+    
+    <div class="recipe-grid">
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+        <ul>
+          <li>1 lb elbow macaroni</li>
+          <li>4 cups sharp cheddar, shredded</li>
+          <li>2 cups Gruyère, shredded</li>
+          <li>1 cup smoked Gouda, shredded</li>
+          <li>4 tbsp butter</li>
+          <li>4 tbsp flour</li>
+          <li>4 cups whole milk, warmed</li>
+          <li>1 tsp mustard powder</li>
+          <li>1/2 tsp cayenne</li>
+          <li>Salt & pepper to taste</li>
+          <li>1 cup panko breadcrumbs</li>
+          <li>Chopped burnt ends (optional topping)</li>
+        </ul>
+      </div>
+      
+      <div class="instructions">
+        <h3>Instructions</h3>
+        <ol>
+          <li><strong>Cook pasta:</strong> Cook macaroni 2 min UNDER al dente (it'll finish in smoker). Drain and set aside.</li>
+          <li><strong>Make sauce:</strong> Melt butter, whisk in flour, cook 2 min. Slowly add warm milk, whisking constantly until thick.</li>
+          <li><strong>Add cheese:</strong> Remove from heat. Stir in 3/4 of cheeses until melted. Add mustard, cayenne, salt, pepper.</li>
+          <li><strong>Combine:</strong> Fold in pasta. Pour into cast iron or foil pan. Top with remaining cheese and panko.</li>
+          <li><strong>Smoke it:</strong> Smoke uncovered at 225-250°F for 1-1.5 hours until bubbly and golden on top.</li>
+          <li><strong>Rest & serve:</strong> Let rest 10 min. Top with chopped burnt ends if desired. Devour.</li>
+        </ol>
+      </div>
+    </div>
+    
+    <div class="pro-tips">
+      <h4>🏆 Pro Tips</h4>
+      <ul>
+        <li>Mix of cheeses = complex flavor. Never use pre-shredded (anti-caking agents prevent melting)</li>
+        <li>Undercook pasta—it absorbs sauce and continues cooking in smoker</li>
+        <li>Cast iron gives best crust on bottom and edges</li>
+        <li>Add bacon, jalapeños, or pulled pork for loaded version</li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Recipe 8: Baked Beans -->
+  <div class="page recipe-page">
+    <div class="recipe-header">
+      <div class="recipe-category">Side Dish</div>
+      <h1 class="recipe-title">Pitmaster Baked Beans</h1>
+      <div class="recipe-meta">
+        <span><strong>Prep:</strong> 15 min</span>
+        <span><strong>Cook:</strong> 3 hours</span>
+        <span><strong>Temp:</strong> 250°F</span>
+        <span><strong>Serves:</strong> 12-15</span>
+      </div>
+    </div>
+    
+    <p class="recipe-description">Sweet, savory, smoky, and loaded with meat. These aren't your grandma's baked beans—unless your grandma was a competition pitmaster.</p>
+    
+    <div class="recipe-grid">
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+        <ul>
+          <li>2 cans (28 oz each) baked beans</li>
+          <li>1/2 lb bacon, chopped</li>
+          <li>1 lb ground beef or chopped brisket</li>
+          <li>1 onion, diced</li>
+          <li>1/2 cup brown sugar</li>
+          <li>1/2 cup BBQ sauce</li>
+          <li>2 tbsp yellow mustard</li>
+          <li>2 tbsp apple cider vinegar</li>
+          <li>1 jalapeño, minced (optional)</li>
+          <li>Salt & pepper to taste</li>
+        </ul>
+      </div>
+      
+      <div class="instructions">
+        <h3>Instructions</h3>
+        <ol>
+          <li><strong>Cook the meat:</strong> Fry bacon until crispy. Remove. Brown ground beef in bacon fat. Remove.</li>
+          <li><strong>Sauté aromatics:</strong> Cook onion in remaining fat until soft, about 5 min. Add jalapeño if using.</li>
+          <li><strong>Combine:</strong> In large foil pan, mix beans, bacon, beef, onion, brown sugar, BBQ sauce, mustard, and vinegar.</li>
+          <li><strong>Season:</strong> Taste and adjust salt, pepper, and sugar. Should be sweet-savory balance.</li>
+          <li><strong>Smoke it:</strong> Smoke uncovered at 250°F for 2-3 hours, stirring every 45 min, until thick and bubbly.</li>
+          <li><strong>Finish:</strong> Beans should coat a spoon. Let rest 15 min—they thicken as they cool.</li>
+        </ol>
+      </div>
+    </div>
+    
+    <div class="pro-tips">
+      <h4>🏆 Pro Tips</h4>
+      <ul>
+        <li>Use leftover brisket or burnt ends instead of ground beef for next level</li>
+        <li>Smoke alongside your main meat—beans love absorbing drippings</li>
+        <li>Make day before—flavors meld and improve overnight</li>
+        <li>Add pineapple chunks for Hawaiian twist</li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Section Divider: Rubs -->
+  <div class="page section-divider">
+    <h2>🧂 Rubs & Seasonings</h2>
+    <p>The foundation of great BBQ</p>
+  </div>
+  
+  <!-- Rubs Page -->
+  <div class="page recipe-page">
+    <div class="recipe-header">
+      <div class="recipe-category">Seasonings</div>
+      <h1 class="recipe-title">Essential BBQ Rubs</h1>
+    </div>
+    
+    <h3 style="color: #f97316; margin-bottom: 15px;">All-Purpose BBQ Rub</h3>
+    <p style="margin-bottom: 20px; color: #666;">The workhorse rub that works on everything—pork, chicken, ribs, beef.</p>
+    <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 40px;">
+      <p><strong>Mix together:</strong></p>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>1/4 cup paprika</li>
+        <li>2 tbsp brown sugar</li>
+        <li>2 tbsp kosher salt</li>
+        <li>1 tbsp black pepper</li>
+        <li>1 tbsp chili powder</li>
+        <li>1 tbsp garlic powder</li>
+        <li>1 tbsp onion powder</li>
+        <li>1 tsp cayenne pepper</li>
+        <li>1 tsp cumin</li>
+      </ul>
+      <p style="margin-top: 15px; font-style: italic; color: #666;">Makes about 1 cup. Store in airtight container up to 6 months.</p>
+    </div>
+    
+    <h3 style="color: #f97316; margin-bottom: 15px;">Texas Brisket Rub</h3>
+    <p style="margin-bottom: 20px; color: #666;">Simple. Perfect. Let the meat shine.</p>
+    <div style="background: #f9f9f9; padding: 20px; border-radius: 8px; margin-bottom: 40px;">
+      <p><strong>Mix together:</strong></p>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>1/2 cup coarse black pepper (16 mesh)</li>
+        <li>1/2 cup coarse kosher salt</li>
+        <li>2 tbsp garlic powder (optional)</li>
+        <li>1 tbsp onion powder (optional)</li>
+      </ul>
+      <p style="margin-top: 15px; font-style: italic; color: #666;">The Dalmatian rub (50/50 S&P) is all you need. Purists skip the garlic.</p>
+    </div>
+    
+    <h3 style="color: #f97316; margin-bottom: 15px;">Memphis Dry Rub</h3>
+    <p style="margin-bottom: 20px; color: #666;">Sweet, savory, with a kick. Perfect for ribs.</p>
+    <div style="background: #f9f9f9; padding: 20px; border-radius: 8px;">
+      <p><strong>Mix together:</strong></p>
+      <ul style="margin-left: 20px; margin-top: 10px;">
+        <li>1/4 cup paprika</li>
+        <li>3 tbsp brown sugar</li>
+        <li>2 tbsp kosher salt</li>
+        <li>2 tbsp chili powder</li>
+        <li>1 tbsp black pepper</li>
+        <li>1 tbsp garlic powder</li>
+        <li>1 tbsp onion powder</li>
+        <li>2 tsp dry mustard</li>
+        <li>1 tsp celery salt</li>
+        <li>1/2 tsp cayenne</li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Section Divider: Sauces -->
+  <div class="page section-divider">
+    <h2>🍯 Sauces</h2>
+    <p>Regional classics to master</p>
+  </div>
+  
+  <!-- Sauces Page 1 -->
+  <div class="page recipe-page">
+    <div class="recipe-header">
+      <div class="recipe-category">Sauces</div>
+      <h1 class="recipe-title">Classic Kansas City BBQ Sauce</h1>
+      <div class="recipe-meta">
+        <span><strong>Prep:</strong> 10 min</span>
+        <span><strong>Cook:</strong> 30 min</span>
+        <span><strong>Makes:</strong> 2 cups</span>
+      </div>
+    </div>
+    
+    <p class="recipe-description">Thick, sweet, tangy, and tomatoey. This is the BBQ sauce most people picture—and for good reason. It's perfect on everything.</p>
+    
+    <div class="recipe-grid">
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+        <ul>
+          <li>1 cup ketchup</li>
+          <li>1/2 cup apple cider vinegar</li>
+          <li>1/4 cup brown sugar</li>
+          <li>2 tbsp molasses</li>
+          <li>2 tbsp Worcestershire sauce</li>
+          <li>1 tbsp yellow mustard</li>
+          <li>1 tsp smoked paprika</li>
+          <li>1 tsp garlic powder</li>
+          <li>1 tsp onion powder</li>
+          <li>1/2 tsp black pepper</li>
+          <li>1/4 tsp cayenne</li>
+          <li>Liquid smoke (optional)</li>
+        </ul>
+      </div>
+      
+      <div class="instructions">
+        <h3>Instructions</h3>
+        <ol>
+          <li><strong>Combine:</strong> Whisk all ingredients together in a saucepan.</li>
+          <li><strong>Simmer:</strong> Bring to low boil, then reduce heat and simmer 20-30 min, stirring occasionally.</li>
+          <li><strong>Adjust:</strong> Taste and adjust sweetness, tang, or heat to your preference.</li>
+          <li><strong>Cool & store:</strong> Cool completely. Store in jar in fridge up to 2 weeks.</li>
+        </ol>
+      </div>
+    </div>
+    
+    <div class="pro-tips">
+      <h4>🏆 Pro Tips</h4>
+      <ul>
+        <li>Add 1 tbsp bourbon or whiskey for adult version</li>
+        <li>Blend smooth or leave chunky—your call</li>
+        <li>Tastes better after resting overnight</li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Sauces Page 2 -->
+  <div class="page recipe-page">
+    <div class="recipe-header">
+      <div class="recipe-category">Sauces</div>
+      <h1 class="recipe-title">Carolina Vinegar Sauce</h1>
+      <div class="recipe-meta">
+        <span><strong>Prep:</strong> 5 min</span>
+        <span><strong>Cook:</strong> None</span>
+        <span><strong>Makes:</strong> 2 cups</span>
+      </div>
+    </div>
+    
+    <p class="recipe-description">Eastern Carolina style—thin, tangy, and fiery. No tomato, no sweetness, just pure vinegar punch. Perfect for pulled pork.</p>
+    
+    <div class="recipe-grid" style="margin-bottom: 40px;">
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+        <ul>
+          <li>1.5 cups apple cider vinegar</li>
+          <li>1/2 cup white vinegar</li>
+          <li>1 tbsp crushed red pepper flakes</li>
+          <li>1 tbsp brown sugar</li>
+          <li>1 tsp kosher salt</li>
+          <li>1 tsp black pepper</li>
+          <li>1/2 tsp cayenne pepper</li>
+        </ul>
+      </div>
+      
+      <div class="instructions">
+        <h3>Instructions</h3>
+        <ol>
+          <li>Combine all ingredients in a jar.</li>
+          <li>Shake vigorously until sugar dissolves.</li>
+          <li>Let sit at least 1 hour (overnight is better).</li>
+          <li>Shake before each use. Keeps indefinitely.</li>
+        </ol>
+      </div>
+    </div>
+    
+    <hr style="border: none; border-top: 2px solid #f0f0f0; margin: 40px 0;">
+    
+    <div class="recipe-header" style="border: none; padding-bottom: 0;">
+      <div class="recipe-category">Sauces</div>
+      <h1 class="recipe-title">Alabama White Sauce</h1>
+      <div class="recipe-meta">
+        <span><strong>Prep:</strong> 5 min</span>
+        <span><strong>Cook:</strong> None</span>
+        <span><strong>Makes:</strong> 2 cups</span>
+      </div>
+    </div>
+    
+    <p class="recipe-description">Creamy, tangy, and totally unique. Invented in Alabama for smoked chicken, but incredible on pork and as a dip.</p>
+    
+    <div class="recipe-grid">
+      <div class="ingredients">
+        <h3>Ingredients</h3>
+        <ul>
+          <li>1 cup mayonnaise</li>
+          <li>1/4 cup apple cider vinegar</li>
+          <li>2 tbsp lemon juice</li>
+          <li>1 tbsp prepared horseradish</li>
+          <li>1 tsp black pepper</li>
+          <li>1/2 tsp salt</li>
+          <li>1/2 tsp cayenne</li>
+          <li>1/2 tsp garlic powder</li>
+        </ul>
+      </div>
+      
+      <div class="instructions">
+        <h3>Instructions</h3>
+        <ol>
+          <li>Whisk all ingredients until smooth.</li>
+          <li>Taste and adjust tang/heat.</li>
+          <li>Refrigerate at least 1 hour before serving.</li>
+          <li>Keeps 1 week refrigerated.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Back Cover -->
+  <div class="page back-cover">
+    <h2>Ready to Level Up<br>Your BBQ Game?</h2>
+    <p>Visit Meatlover for expert reviews on the best grills, smokers, and accessories to make these recipes shine.</p>
+    <div class="cta">Visit Meatlover.com</div>
+    <div class="website">www.meatlover.com</div>
+  </div>
+  
+</body>
+</html>
+`;
+
+async function generatePDF() {
+  const browser = await puppeteer.launch({
+    headless: true,
+    args: ['--no-sandbox', '--disable-setuid-sandbox']
+  });
+  
+  const page = await browser.newPage();
+  await page.setContent(recipeBookHTML, { waitUntil: 'networkidle0' });
+  
+  const pdfPath = path.join(process.cwd(), 'public', 'pitmaster-recipe-book.pdf');
+  
+  await page.pdf({
+    path: pdfPath,
+    format: 'Letter',
+    printBackground: true,
+    margin: { top: 0, right: 0, bottom: 0, left: 0 }
+  });
+  
+  await browser.close();
+  
+  console.log(`PDF generated at: ${pdfPath}`);
+}
+
+generatePDF().catch(console.error);

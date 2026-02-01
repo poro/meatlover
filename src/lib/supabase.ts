@@ -1,43 +1,6 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || 'https://pkqtljqhlinbjefkrgqn.supabase.co'
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBrcXRsanFobGluYmplZmtyZ3FuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk4Njk2ODAsImV4cCI6MjA4NTQ0NTY4MH0.MWh3j7lSE_4sJjSm5gKJ43ubL3oU66lyEjNUfR8rOxs'
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
-
-export type Product = {
-  id: string
-  name: string
-  brand: string
-  category: 'grill' | 'smoker' | 'accessory' | 'thermometer'
-  subcategory: string
-  description: string
-  image_url: string
-  price: number
-  rating: number
-  pros: string[]
-  cons: string[]
-  specs: Record<string, string>
-  affiliate_url: string
-  created_at: string
-}
-
-export type Subscription = {
-  id: string
-  name: string
-  description: string
-  image_url: string
-  price_range: string
-  rating: number
-  pros: string[]
-  cons: string[]
-  affiliate_url: string
-  commission: string
-}
-
-export type EmailSubscriber = {
-  id: string
-  email: string
-  subscribed_at: string
-  is_active: boolean
-}

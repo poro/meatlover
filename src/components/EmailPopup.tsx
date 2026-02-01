@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import { X, Flame, Gift, BookOpen, ChefHat } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -10,10 +11,12 @@ import {
 } from '@/components/ui/dialog'
 
 export default function EmailPopup() {
+  const router = useRouter()
   const [isOpen, setIsOpen] = useState(false)
   const [email, setEmail] = useState('')
   const [submitted, setSubmitted] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     // Check if user has already seen the popup
@@ -43,20 +46,36 @@ export default function EmailPopup() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setLoading(true)
+    setError('')
     
-    // Simulate API call - in production, this would call your backend
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    console.log('Email submitted:', email)
-    
-    setSubmitted(true)
-    setLoading(false)
-    localStorage.setItem('meatlover-popup-seen', 'true')
-    
-    // Close popup after 4 seconds
-    setTimeout(() => {
-      setIsOpen(false)
-    }, 4000)
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, source: 'recipe-book-popup' }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Something went wrong')
+      }
+      
+      setSubmitted(true)
+      localStorage.setItem('meatlover-popup-seen', 'true')
+      
+      // Redirect to download page after brief delay
+      setTimeout(() => {
+        setIsOpen(false)
+        router.push('/download')
+      }, 2000)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to subscribe. Please try again.')
+    } finally {
+      setLoading(false)
+    }
   }
 
   const handleClose = () => {
@@ -80,10 +99,10 @@ export default function EmailPopup() {
             <Gift className="h-8 w-8 text-white" />
           </div>
           <h2 className="text-2xl font-bold text-white mb-2">
-            Free BBQ Recipe eBook!
+            Free Pitmaster Recipe Book!
           </h2>
           <p className="text-white/80">
-            Join 25,000+ pitmasters and get our exclusive guide
+            15 competition-winning recipes + pro tips
           </p>
         </div>
 
@@ -94,7 +113,7 @@ export default function EmailPopup() {
               <div className="space-y-2">
                 <div className="flex items-center gap-3 text-neutral-300">
                   <BookOpen className="h-5 w-5 text-orange-500 flex-shrink-0" />
-                  <span>50+ competition-winning recipes</span>
+                  <span>Texas brisket, ribs, pulled pork & more</span>
                 </div>
                 <div className="flex items-center gap-3 text-neutral-300">
                   <ChefHat className="h-5 w-5 text-orange-500 flex-shrink-0" />
@@ -102,7 +121,7 @@ export default function EmailPopup() {
                 </div>
                 <div className="flex items-center gap-3 text-neutral-300">
                   <Flame className="h-5 w-5 text-orange-500 flex-shrink-0" />
-                  <span>Exclusive deals & new product alerts</span>
+                  <span>3 signature rubs + 3 homemade sauces</span>
                 </div>
               </div>
               
@@ -115,6 +134,9 @@ export default function EmailPopup() {
                   required
                   className="bg-neutral-800 border-neutral-700 text-white placeholder:text-neutral-500 focus:border-orange-500 py-6"
                 />
+                {error && (
+                  <p className="text-red-500 text-sm">{error}</p>
+                )}
                 <Button
                   type="submit"
                   disabled={loading}
@@ -126,10 +148,10 @@ export default function EmailPopup() {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                       </svg>
-                      Sending...
+                      Processing...
                     </span>
                   ) : (
-                    'Get My Free eBook 📖'
+                    'Get My Free Recipe Book 🔥'
                   )}
                 </Button>
               </form>
@@ -141,9 +163,9 @@ export default function EmailPopup() {
           ) : (
             <div className="text-center py-4">
               <div className="text-6xl mb-4">🎉</div>
-              <h3 className="text-xl font-bold text-white mb-2">Check Your Inbox!</h3>
+              <h3 className="text-xl font-bold text-white mb-2">Success!</h3>
               <p className="text-neutral-400">
-                Your free BBQ Recipe eBook is on its way. Welcome to the pit crew!
+                Redirecting you to download your recipe book...
               </p>
             </div>
           )}
