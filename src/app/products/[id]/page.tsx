@@ -1,5 +1,6 @@
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
+import Image from 'next/image'
 import Script from 'next/script'
 import { ArrowLeft, Star, Check, X, ExternalLink, ShieldCheck, Award, TrendingUp } from 'lucide-react'
 import { Button } from '@/components/ui/button'
@@ -32,6 +33,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
       title,
       description,
       type: 'website',
+      images: product.image_url.startsWith('http') ? [product.image_url] : undefined,
     },
   }
 }
@@ -59,6 +61,11 @@ export default async function ProductPage({ params }: ProductPageProps) {
   }
 
   const relatedProducts = getRelatedProducts(product.id, 3)
+  const isExternalImage = product.image_url.startsWith('http')
+  
+  const categoryEmoji = product.category === 'grill' ? '🔥' : 
+                        product.category === 'smoker' ? '💨' :
+                        product.category === 'thermometer' ? '🌡️' : '🛠️'
 
   // Structured data for SEO
   const structuredData = {
@@ -66,6 +73,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
     '@type': 'Product',
     name: product.name,
     description: product.description,
+    image: isExternalImage ? product.image_url : undefined,
     brand: {
       '@type': 'Brand',
       name: product.brand,
@@ -115,26 +123,36 @@ export default async function ProductPage({ params }: ProductPageProps) {
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
               {/* Image */}
               <div className="relative">
-                <div className="aspect-square bg-neutral-800 rounded-2xl flex items-center justify-center sticky top-24">
-                  <div className="text-center">
-                    <div className="text-8xl mb-4">
-                      {product.category === 'grill' ? '🔥' : 
-                       product.category === 'smoker' ? '💨' :
-                       product.category === 'thermometer' ? '🌡️' : '🛠️'}
+                <div className="aspect-square bg-neutral-800 rounded-2xl overflow-hidden sticky top-24">
+                  {isExternalImage ? (
+                    <Image
+                      src={product.image_url}
+                      alt={product.name}
+                      fill
+                      className="object-contain p-8"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      priority
+                      unoptimized
+                    />
+                  ) : (
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-center">
+                        <div className="text-8xl mb-4">{categoryEmoji}</div>
+                        <span className="text-neutral-500">{product.brand}</span>
+                      </div>
                     </div>
-                    <span className="text-neutral-500">{product.brand}</span>
-                  </div>
+                  )}
                   
                   {/* Badges */}
-                  <div className="absolute top-4 left-4 flex flex-col gap-2">
+                  <div className="absolute top-4 left-4 flex flex-col gap-2 z-10">
                     {product.best_for && (
-                      <Badge className="bg-orange-500 text-white">
+                      <Badge className="bg-orange-500 text-white shadow-lg">
                         <Award className="h-3 w-3 mr-1" />
                         {product.best_for}
                       </Badge>
                     )}
                     {product.expert_tested && (
-                      <Badge variant="outline" className="bg-neutral-900/80 border-green-500/50 text-green-400">
+                      <Badge variant="outline" className="bg-neutral-900/90 border-green-500/50 text-green-400 shadow-lg">
                         <ShieldCheck className="h-3 w-3 mr-1" />
                         Expert Tested
                       </Badge>

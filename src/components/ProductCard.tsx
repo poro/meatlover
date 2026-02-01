@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Star, ExternalLink, ShieldCheck, Award } from 'lucide-react'
 import { Card, CardContent, CardFooter } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -27,39 +28,54 @@ export default function ProductCard({ product, showBestFor = true, compact = fal
     return count.toString()
   }
 
+  // Check if image is external URL
+  const isExternalImage = product.image_url.startsWith('http')
+  
+  // Fallback emoji for category
+  const categoryEmoji = product.category === 'grill' ? '🔥' : 
+                        product.category === 'smoker' ? '💨' :
+                        product.category === 'thermometer' ? '🌡️' : '🛠️'
+
   return (
     <Card className="bg-neutral-900 border-neutral-800 overflow-hidden group hover:border-orange-500/50 transition-colors h-full flex flex-col">
       {/* Image */}
       <div className="relative aspect-[4/3] bg-neutral-800 overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center text-neutral-600">
-          <div className="text-center">
-            <div className="text-4xl mb-2">
-              {product.category === 'grill' ? '🔥' : 
-               product.category === 'smoker' ? '💨' :
-               product.category === 'thermometer' ? '🌡️' : '🛠️'}
+        {isExternalImage ? (
+          <Image
+            src={product.image_url}
+            alt={product.name}
+            fill
+            className="object-contain p-4 group-hover:scale-105 transition-transform duration-300"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            unoptimized
+          />
+        ) : (
+          <div className="absolute inset-0 flex items-center justify-center text-neutral-600">
+            <div className="text-center">
+              <div className="text-4xl mb-2">{categoryEmoji}</div>
+              <span className="text-sm">{product.brand}</span>
             </div>
-            <span className="text-sm">{product.brand}</span>
           </div>
-        </div>
+        )}
         
         {/* Badges overlay */}
-        <div className="absolute top-3 left-3 flex flex-col gap-2">
+        <div className="absolute top-3 left-3 flex flex-col gap-2 z-10">
           {product.best_for && showBestFor && (
-            <Badge className="bg-orange-500 hover:bg-orange-600 text-white">
+            <Badge className="bg-orange-500 hover:bg-orange-600 text-white shadow-lg">
               <Award className="h-3 w-3 mr-1" />
               {product.best_for}
             </Badge>
           )}
           {product.featured && !product.best_for && (
-            <Badge className="bg-orange-500 hover:bg-orange-600">
+            <Badge className="bg-orange-500 hover:bg-orange-600 shadow-lg">
               Featured
             </Badge>
           )}
         </div>
 
         {product.expert_tested && (
-          <div className="absolute top-3 right-3">
-            <Badge variant="outline" className="bg-neutral-900/80 border-green-500/50 text-green-400">
+          <div className="absolute top-3 right-3 z-10">
+            <Badge variant="outline" className="bg-neutral-900/90 border-green-500/50 text-green-400 shadow-lg">
               <ShieldCheck className="h-3 w-3 mr-1" />
               Expert Tested
             </Badge>
