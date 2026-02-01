@@ -2,63 +2,18 @@ import Link from 'next/link'
 import { ArrowRight, Clock, Calendar } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
+import Breadcrumbs from '@/components/Breadcrumbs'
+import { guides } from '@/data/products'
+import type { Metadata } from 'next'
 
-const guides = [
-  {
-    slug: 'best-grills-2025',
-    title: 'Best Grills of 2025',
-    description: 'Our comprehensive guide to the top grills of 2025. We tested over 20 models to find the best for every budget and cooking style.',
-    category: 'Buying Guide',
-    readTime: '15 min read',
-    date: 'January 2025',
-    featured: true,
+export const metadata: Metadata = {
+  title: 'BBQ Guides & Buying Tips | MeatLover',
+  description: 'Expert BBQ guides, buying tips, and comparisons. Learn how to choose the perfect grill, smoker, and accessories for your needs.',
+  openGraph: {
+    title: 'BBQ Guides & Buying Tips | MeatLover',
+    description: 'Expert BBQ guides, buying tips, and comparisons.',
   },
-  {
-    slug: 'beginner-bbq-tips',
-    title: 'BBQ Tips for Beginners',
-    description: 'New to grilling? Learn the fundamentals of BBQ, from fire management to internal temperatures, in this beginner-friendly guide.',
-    category: 'Tutorial',
-    readTime: '10 min read',
-    date: 'January 2025',
-    featured: true,
-  },
-  {
-    slug: 'pellet-vs-charcoal',
-    title: 'Pellet vs. Charcoal Grills',
-    description: 'The great debate settled. We break down the pros and cons of pellet and charcoal grills to help you choose the right one.',
-    category: 'Comparison',
-    readTime: '8 min read',
-    date: 'December 2024',
-    featured: false,
-  },
-  {
-    slug: 'smoking-your-first-brisket',
-    title: 'Smoking Your First Brisket',
-    description: 'A step-by-step guide to smoking a perfect brisket. Learn the techniques pros use to get that perfect smoke ring.',
-    category: 'Recipe',
-    readTime: '20 min read',
-    date: 'December 2024',
-    featured: false,
-  },
-  {
-    slug: 'meat-subscription-comparison',
-    title: 'Meat Subscription Box Comparison',
-    description: 'We tested the top meat delivery services so you don\'t have to. See how ButcherBox, Crowd Cow, and others stack up.',
-    category: 'Comparison',
-    readTime: '12 min read',
-    date: 'November 2024',
-    featured: false,
-  },
-  {
-    slug: 'thermometer-guide',
-    title: 'Complete Thermometer Guide',
-    description: 'From instant-read to wireless probes, learn which thermometer is right for your cooking style and budget.',
-    category: 'Buying Guide',
-    readTime: '7 min read',
-    date: 'November 2024',
-    featured: false,
-  },
-]
+}
 
 export default function GuidesPage() {
   const featuredGuides = guides.filter(g => g.featured)
@@ -66,6 +21,8 @@ export default function GuidesPage() {
 
   return (
     <div className="min-h-screen">
+      <Breadcrumbs items={[{ label: 'Guides' }]} />
+
       {/* Header */}
       <section className="bg-gradient-to-r from-neutral-900 to-blue-950/30 py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

@@ -1,10 +1,13 @@
 'use client'
 
 import { useState } from 'react'
-import { Filter } from 'lucide-react'
+import Link from 'next/link'
+import { Filter, ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { Badge } from '@/components/ui/badge'
 import ProductCard from '@/components/ProductCard'
-import { getProductsByCategory } from '@/data/products'
+import Breadcrumbs from '@/components/Breadcrumbs'
+import { getProductsByCategory, type Product } from '@/data/products'
 
 const subcategories = [
   { id: 'all', name: 'All Smokers' },
@@ -12,13 +15,21 @@ const subcategories = [
   { id: 'vertical', name: 'Vertical' },
   { id: 'electric', name: 'Electric' },
   { id: 'pellet', name: 'Pellet' },
+  { id: 'drum', name: 'Drum' },
 ]
 
-const brands = ['All', 'Oklahoma Joe\'s', 'Weber', 'Masterbuilt', 'Traeger']
+const brands = ['All', 'Weber', 'Masterbuilt', 'Oklahoma Joe\'s', 'Pit Barrel', 'Yoder']
+const priceRanges = [
+  { id: 'all', name: 'All Prices' },
+  { id: 'under-500', name: 'Under $500' },
+  { id: '500-1000', name: '$500 - $1,000' },
+  { id: 'over-1000', name: '$1,000+' },
+]
 
 export default function SmokersPage() {
   const [selectedSubcategory, setSelectedSubcategory] = useState('all')
   const [selectedBrand, setSelectedBrand] = useState('All')
+  const [selectedPrice, setSelectedPrice] = useState('all')
   const [sortBy, setSortBy] = useState<'price-asc' | 'price-desc' | 'rating'>('rating')
 
   const allSmokers = getProductsByCategory('smoker')
@@ -26,24 +37,46 @@ export default function SmokersPage() {
   let filteredSmokers = allSmokers.filter((product) => {
     const matchesSubcategory = selectedSubcategory === 'all' || product.subcategory === selectedSubcategory
     const matchesBrand = selectedBrand === 'All' || product.brand === selectedBrand
-    return matchesSubcategory && matchesBrand
+    
+    let matchesPrice = true
+    if (selectedPrice === 'under-500') matchesPrice = product.price < 500
+    else if (selectedPrice === '500-1000') matchesPrice = product.price >= 500 && product.price <= 1000
+    else if (selectedPrice === 'over-1000') matchesPrice = product.price > 1000
+    
+    return matchesSubcategory && matchesBrand && matchesPrice
   })
 
+  // Sort
   filteredSmokers = [...filteredSmokers].sort((a, b) => {
     if (sortBy === 'price-asc') return a.price - b.price
     if (sortBy === 'price-desc') return b.price - a.price
     return b.rating - a.rating
   })
 
+  const clearFilters = () => {
+    setSelectedSubcategory('all')
+    setSelectedBrand('All')
+    setSelectedPrice('all')
+  }
+
+  const hasFilters = selectedSubcategory !== 'all' || selectedBrand !== 'All' || selectedPrice !== 'all'
+
   return (
     <div className="min-h-screen">
+      <Breadcrumbs items={[{ label: 'Smokers' }]} />
+
       {/* Header */}
-      <section className="bg-gradient-to-r from-neutral-900 to-red-950/30 py-12">
+      <section className="bg-gradient-to-r from-neutral-900 to-purple-950/30 py-12">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center gap-2 mb-4">
+            <Badge className="bg-purple-500/20 text-purple-400 border-purple-500/50">
+              {allSmokers.length} Products
+            </Badge>
+          </div>
           <h1 className="text-4xl font-bold text-white mb-4">💨 Smokers</h1>
           <p className="text-neutral-300 max-w-2xl">
-            Low and slow is the way to go. Whether you&apos;re looking for a traditional offset or 
-            a set-it-and-forget-it electric, we&apos;ve got you covered.
+            From offset pit smokers to set-it-and-forget-it electrics, find the perfect smoker for 
+            competition-level BBQ. All reviews based on hands-on testing.
           </p>
         </div>
       </section>
@@ -52,7 +85,8 @@ export default function SmokersPage() {
       <section className="bg-neutral-900 border-b border-neutral-800 py-4 sticky top-16 z-40">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap items-center gap-4">
-            <div className="flex items-center gap-2">
+            {/* Type Filter */}
+            <div className="flex items-center gap-2 flex-wrap">
               <Filter className="h-4 w-4 text-neutral-400" />
               <span className="text-sm text-neutral-400">Type:</span>
               <div className="flex gap-1 flex-wrap">
@@ -72,6 +106,7 @@ export default function SmokersPage() {
               </div>
             </div>
 
+            {/* Brand Filter */}
             <div className="flex items-center gap-2">
               <span className="text-sm text-neutral-400">Brand:</span>
               <select
@@ -85,6 +120,21 @@ export default function SmokersPage() {
               </select>
             </div>
 
+            {/* Price Filter */}
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-neutral-400">Price:</span>
+              <select
+                value={selectedPrice}
+                onChange={(e) => setSelectedPrice(e.target.value)}
+                className="bg-neutral-800 border border-neutral-700 rounded-md px-3 py-1.5 text-sm text-white focus:border-orange-500 focus:outline-none"
+              >
+                {priceRanges.map((range) => (
+                  <option key={range.id} value={range.id}>{range.name}</option>
+                ))}
+              </select>
+            </div>
+
+            {/* Sort */}
             <div className="flex items-center gap-2 ml-auto">
               <span className="text-sm text-neutral-400">Sort:</span>
               <select
@@ -108,14 +158,11 @@ export default function SmokersPage() {
             <p className="text-neutral-400">
               Showing <span className="text-white font-medium">{filteredSmokers.length}</span> smokers
             </p>
-            {(selectedSubcategory !== 'all' || selectedBrand !== 'All') && (
+            {hasFilters && (
               <Button
                 variant="ghost"
                 size="sm"
-                onClick={() => {
-                  setSelectedSubcategory('all')
-                  setSelectedBrand('All')
-                }}
+                onClick={clearFilters}
                 className="text-orange-500 hover:text-orange-400"
               >
                 Clear Filters
@@ -135,10 +182,7 @@ export default function SmokersPage() {
               <Button
                 variant="outline"
                 className="mt-4 border-neutral-700"
-                onClick={() => {
-                  setSelectedSubcategory('all')
-                  setSelectedBrand('All')
-                }}
+                onClick={clearFilters}
               >
                 Clear Filters
               </Button>
@@ -147,30 +191,34 @@ export default function SmokersPage() {
         </div>
       </section>
 
-      {/* Info Section */}
+      {/* Buying Guide CTA */}
       <section className="py-12 bg-neutral-900">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-neutral-800 rounded-xl p-6">
-              <h3 className="text-lg font-bold text-white mb-3">🔥 Offset Smokers</h3>
-              <p className="text-neutral-400 text-sm">
-                Traditional barrel-style smokers with a side firebox. Requires more attention but 
-                delivers authentic BBQ flavor. Best for purists who want full control.
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+              <h2 className="text-2xl font-bold text-white mb-4">Best Smokers Under $500</h2>
+              <p className="text-neutral-400 mb-6">
+                You don&apos;t need to spend a fortune to smoke incredible BBQ. 
+                Check out our guide to the best budget smokers of 2025.
               </p>
+              <Link href="/guides/best-smokers-under-500">
+                <Button className="bg-orange-500 hover:bg-orange-600">
+                  Read the Guide
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Button>
+              </Link>
             </div>
-            <div className="bg-neutral-800 rounded-xl p-6">
-              <h3 className="text-lg font-bold text-white mb-3">⚡ Electric Smokers</h3>
-              <p className="text-neutral-400 text-sm">
-                Set-and-forget convenience with digital temperature control. Great for beginners 
-                and apartment dwellers. Less intense smoke flavor.
-              </p>
-            </div>
-            <div className="bg-neutral-800 rounded-xl p-6">
-              <h3 className="text-lg font-bold text-white mb-3">📊 Vertical Smokers</h3>
-              <p className="text-neutral-400 text-sm">
-                Compact design with multiple racks for maximum capacity. Works with charcoal, 
-                wood, or water. Weber Smokey Mountain is the gold standard.
-              </p>
+            <div className="grid grid-cols-2 gap-4">
+              <div className="bg-neutral-800 rounded-xl p-4 text-center">
+                <div className="text-3xl mb-2">🥇</div>
+                <p className="text-sm text-neutral-400">Best Overall</p>
+                <p className="font-bold text-white">OK Joe&apos;s Highland</p>
+              </div>
+              <div className="bg-neutral-800 rounded-xl p-4 text-center">
+                <div className="text-3xl mb-2">💰</div>
+                <p className="text-sm text-neutral-400">Best Value</p>
+                <p className="font-bold text-white">Pit Barrel Cooker</p>
+              </div>
             </div>
           </div>
         </div>
