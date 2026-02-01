@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import ProductCard from '@/components/ProductCard'
 import Breadcrumbs from '@/components/Breadcrumbs'
-import { getProductsByCategory, type Product } from '@/data/products'
+import { getProductsByCategory } from '@/data/products'
 
 const subcategories = [
   { id: 'all', name: 'All Grills' },
