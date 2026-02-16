@@ -30,6 +30,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <script defer src="https://analytics.game-agents.com/script.js" data-website-id="91324878-25a2-4a81-a594-50b59404cee7"></script>
+      </head>
       <body className={`${inter.variable} antialiased bg-neutral-950 text-white min-h-screen flex flex-col`}>
         <Navbar />
         <main className="flex-1">
