@@ -2,7 +2,7 @@ import type { MetadataRoute } from 'next'
 import { products, guides } from '@/data/products'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://meatlover-sigma.vercel.app'
+  const baseUrl = 'https://meatlover.com'
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
