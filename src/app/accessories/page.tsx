@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge'
 import ProductCard from '@/components/ProductCard'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { products } from '@/data/products'
+import ProductListJsonLd from '@/components/ProductListJsonLd'
 
 const subcategories = [
   { id: 'all', name: 'All Accessories' },
@@ -59,6 +60,7 @@ export default function AccessoriesPage() {
 
   return (
     <div className="min-h-screen">
+      <ProductListJsonLd products={allAccessories} listName="Best BBQ Accessories & Thermometers 2026" />
       <Breadcrumbs items={[{ label: 'Accessories' }]} />
 
       {/* Header */}

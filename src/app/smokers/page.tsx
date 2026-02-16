@@ -8,6 +8,7 @@ import { Badge } from '@/components/ui/badge'
 import ProductCard from '@/components/ProductCard'
 import Breadcrumbs from '@/components/Breadcrumbs'
 import { getProductsByCategory } from '@/data/products'
+import ProductListJsonLd from '@/components/ProductListJsonLd'
 
 const subcategories = [
   { id: 'all', name: 'All Smokers' },
@@ -63,6 +64,7 @@ export default function SmokersPage() {
 
   return (
     <div className="min-h-screen">
+      <ProductListJsonLd products={allSmokers} listName="Best Smokers 2026" />
       <Breadcrumbs items={[{ label: 'Smokers' }]} />
 
       {/* Header */}

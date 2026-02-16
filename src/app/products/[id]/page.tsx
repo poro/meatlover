@@ -101,8 +101,23 @@ export default async function ProductPage({ params }: ProductPageProps) {
   const categoryPath = product.category === 'grill' ? '/grills' :
                        product.category === 'smoker' ? '/smokers' : '/accessories'
 
+  const breadcrumbData = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://meatlover.com' },
+      { '@type': 'ListItem', position: 2, name: categoryLabel, item: `https://meatlover.com${categoryPath}` },
+      { '@type': 'ListItem', position: 3, name: product.name },
+    ],
+  }
+
   return (
     <>
+      <Script
+        id="breadcrumb-structured-data"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbData) }}
+      />
       <Script
         id="product-structured-data"
         type="application/ld+json"
