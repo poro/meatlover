@@ -118,8 +118,19 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Affiliate Disclosure */}
+        {/* From Our Network */}
         <div className="mt-12 pt-8 border-t border-neutral-800">
+          <h3 className="text-neutral-400 text-xs font-semibold uppercase tracking-wider mb-3">From Our Network</h3>
+          <div className="flex flex-wrap gap-x-6 gap-y-2 mb-8">
+            <a href="https://stereos.com" target="_blank" rel="noopener noreferrer" className="text-neutral-500 hover:text-orange-500 text-sm transition-colors">🎧 Stereos — Audio Equipment Reviews</a>
+            <a href="https://odds.cn" target="_blank" rel="noopener noreferrer" className="text-neutral-500 hover:text-orange-500 text-sm transition-colors">🏈 Odds.cn — Sports Betting Odds</a>
+            <a href="https://cmnn.com" target="_blank" rel="noopener noreferrer" className="text-neutral-500 hover:text-orange-500 text-sm transition-colors">📰 CMNN — Conservative News</a>
+            <a href="https://ai-spend.vercel.app" target="_blank" rel="noopener noreferrer" className="text-neutral-500 hover:text-orange-500 text-sm transition-colors">🤖 AI Spend — AI Subscription Tracker</a>
+          </div>
+        </div>
+
+        {/* Affiliate Disclosure */}
+        <div className="pt-8 border-t border-neutral-800">
           <div className="bg-neutral-900 rounded-lg p-4 mb-6">
             <p className="text-neutral-400 text-xs">
               <strong className="text-neutral-300">Affiliate Disclosure:</strong> MeatLover is a participant in various 
