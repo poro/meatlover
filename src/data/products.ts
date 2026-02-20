@@ -1237,6 +1237,56 @@ export const guides: Guide[] = [
     relatedProducts: ['10', '11', '34', '35', '36', '37']
   },
   {
+    slug: 'perfect-smoked-ribs',
+    title: 'Perfect Smoked Ribs: The 3-2-1 Method Explained',
+    description: 'Master the legendary 3-2-1 method for fall-off-the-bone ribs every time. Step-by-step instructions with rub recipes and timing.',
+    category: 'Recipe',
+    readTime: '12 min read',
+    date: 'February 2026',
+    featured: true,
+    relatedProducts: ['1', '7', '10']
+  },
+  {
+    slug: 'best-rubs-and-seasonings',
+    title: 'Best BBQ Rubs & Seasonings: Store-Bought and Homemade',
+    description: 'The ultimate guide to BBQ rubs — top store-bought picks plus DIY recipes for ribs, brisket, chicken, and pork.',
+    category: 'Buying Guide',
+    readTime: '10 min read',
+    date: 'February 2026',
+    featured: true,
+    relatedProducts: []
+  },
+  {
+    slug: 'pulled-pork-recipe',
+    title: 'Ultimate Pulled Pork: From Smoker to Sandwich',
+    description: 'How to smoke a pork butt for perfect pulled pork every time. Covers selecting, seasoning, smoking, and shredding.',
+    category: 'Recipe',
+    readTime: '15 min read',
+    date: 'February 2026',
+    featured: false,
+    relatedProducts: ['1', '7', '10']
+  },
+  {
+    slug: 'best-grilling-gifts',
+    title: 'Best Grilling Gifts for BBQ Lovers (2026)',
+    description: 'Gift ideas for the grill master in your life — every budget covered from $15 stocking stuffers to $2,500 dream grills.',
+    category: 'Buying Guide',
+    readTime: '9 min read',
+    date: 'February 2026',
+    featured: false,
+    relatedProducts: ['1', '3', '4', '10', '11']
+  },
+  {
+    slug: 'smoked-chicken-wings',
+    title: 'Crispy Smoked Chicken Wings: The Best Method',
+    description: 'Get restaurant-quality wings at home with the baking powder trick, smoke, and high-heat finish for perfect wings every time.',
+    category: 'Recipe',
+    readTime: '10 min read',
+    date: 'February 2026',
+    featured: false,
+    relatedProducts: ['3', '10']
+  },
+  {
     slug: 'how-to-clean-your-grill',
     title: 'How to Clean Your Grill Like a Pro',
     description: 'Keep your grill in top shape with our deep-cleaning guide. Learn the tools and techniques that extend your grill\'s life.',

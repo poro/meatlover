@@ -1162,6 +1162,816 @@ Happy cooking! 🌡️
     `,
   },
 
+  'perfect-smoked-ribs': {
+    title: 'Perfect Smoked Ribs: The 3-2-1 Method Explained',
+    description: 'Master the legendary 3-2-1 method for fall-off-the-bone ribs every time.',
+    category: 'Recipe',
+    readTime: '12 min read',
+    date: 'February 2026',
+    metaTitle: 'Perfect Smoked Ribs - 3-2-1 Method Guide | MeatLover',
+    metaDescription: 'Learn the 3-2-1 method for smoking perfect ribs every time. Step-by-step instructions for baby backs and spare ribs with rub recipes and sauce tips.',
+    content: `
+## The 3-2-1 Method: Perfect Ribs Every Time
+
+The 3-2-1 method is the most reliable way to smoke ribs. Three hours of smoke, two hours wrapped, one hour sauced. Here's how to nail it.
+
+---
+
+## What You'll Need
+
+### Ingredients
+- 2 racks St. Louis-style spare ribs (or baby backs)
+- Yellow mustard (binder)
+- Your favorite BBQ rub (recipe below)
+- Apple cider vinegar spray
+- BBQ sauce
+- Brown sugar
+- Butter
+- Honey
+
+### Our Go-To Rub Recipe
+- 1/4 cup paprika
+- 2 tbsp black pepper
+- 2 tbsp garlic powder
+- 2 tbsp onion powder
+- 2 tbsp brown sugar
+- 1 tbsp kosher salt
+- 1 tbsp chili powder
+- 1 tsp cayenne (optional)
+
+Mix and store in an airtight container. Makes enough for 4 racks.
+
+---
+
+## Step 1: Prep (30 minutes)
+
+### Remove the Membrane
+This is the single most important step. The membrane on the bone side prevents smoke and seasoning from penetrating.
+
+1. Slide a butter knife under the membrane at one end
+2. Grab with a paper towel (for grip)
+3. Pull slowly — it should come off in one piece
+
+### Season
+1. Pat ribs dry with paper towels
+2. Apply thin coat of yellow mustard (binder)
+3. Apply rub generously on both sides
+4. Let sit 30 minutes while smoker preheats
+
+---
+
+## Step 2: The Smoke (3 Hours)
+
+**Temperature:** 225°F
+**Wood:** Cherry, apple, or hickory
+
+1. Place ribs bone-side down on grate
+2. Spritz with apple cider vinegar every 45 minutes
+3. Maintain 225°F — don't peek unnecessarily
+4. After 3 hours, the bark should be set and mahogany-colored
+
+**What's Happening:** The smoke is penetrating the meat and building bark. The low temperature is slowly breaking down connective tissue.
+
+---
+
+## Step 3: The Wrap (2 Hours)
+
+This is where the magic happens. Wrapping tenderizes the ribs in their own juices.
+
+**For Each Rack:**
+1. Lay out a large sheet of heavy-duty foil (or butcher paper)
+2. Drizzle 2 tbsp honey
+3. Add 2 tbsp brown sugar
+4. Add 3 pats of butter
+5. Place ribs meat-side down on the sweet stuff
+6. Wrap tightly — no leaks!
+7. Return to smoker at 225°F for 2 hours
+
+**Foil vs Butcher Paper:**
+- **Foil:** More tender, softer bark, faster
+- **Butcher Paper:** Better bark, slightly firmer texture
+
+---
+
+## Step 4: The Sauce (1 Hour)
+
+1. Unwrap ribs carefully (save the juices!)
+2. Place back on grate bone-side down
+3. Brush with BBQ sauce
+4. Cook 45-60 minutes at 225°F
+5. Apply second coat of sauce in last 15 minutes
+
+**Pro Tip:** Mix some of the saved juices into your BBQ sauce for extra flavor.
+
+---
+
+## The Bend Test
+
+Pick up the rack with tongs in the middle. If it bends easily and the meat starts to crack on the surface, they're done. If they break in half, they're slightly overdone (still delicious).
+
+---
+
+## Baby Backs vs Spare Ribs
+
+| Factor | Baby Backs | Spare Ribs |
+|--------|-----------|------------|
+| **Size** | Smaller, curved | Larger, flatter |
+| **Meat** | Leaner | More marbling |
+| **Time** | 2-1-1 method | 3-2-1 method |
+| **Price** | $5-7/lb | $3-4/lb |
+| **Best For** | Quick cooks | Maximum flavor |
+
+**For Baby Backs:** Use the 2-1-1 method (2 hours smoke, 1 hour wrapped, 1 hour sauced).
+
+---
+
+## Troubleshooting
+
+**Dry Ribs:** Wrap earlier or add more liquid to the wrap.
+
+**Mushy Ribs:** Reduce wrap time by 30 minutes. "Fall off the bone" is actually slightly overcooked for competition.
+
+**No Smoke Ring:** Cosmetic only. Doesn't affect flavor.
+
+**Bark Too Soft:** Use butcher paper instead of foil, or skip the wrap entirely for Texas-style ribs.
+
+---
+
+## Recommended Gear
+
+- [Traeger Pro 780](https://amazon.com/dp/B08LCJK9CP?tag=meatlover-20) — Set-and-forget pellet smoking ($1,299)
+- [ThermoWorks Thermapen ONE](https://amazon.com/dp/B0CZ8M8LP4?tag=meatlover-20) — Check doneness accurately ($105)
+- [Weber Smokey Mountain](https://amazon.com/dp/B001I8ZTJA?tag=meatlover-20) — Classic charcoal smoker for ribs ($549)
+
+---
+
+## Timeline
+
+| Time | Action |
+|------|--------|
+| 8:00 AM | Prep and season ribs |
+| 8:30 AM | Ribs on smoker at 225°F |
+| 11:30 AM | Wrap in foil with butter/sugar |
+| 1:30 PM | Unwrap, sauce, back on grate |
+| 2:30 PM | Slice and serve! |
+
+Total: ~6 hours from start to plate.
+
+---
+
+The 3-2-1 method is foolproof. Once you've made ribs this way, you'll never go back to the oven. 🍖
+    `,
+  },
+
+  'best-rubs-and-seasonings': {
+    title: 'Best BBQ Rubs & Seasonings: Store-Bought and Homemade',
+    description: 'The ultimate guide to BBQ rubs — our top picks plus DIY recipes.',
+    category: 'Buying Guide',
+    readTime: '10 min read',
+    date: 'February 2026',
+    metaTitle: 'Best BBQ Rubs & Seasonings 2026 - Top Picks & Recipes | MeatLover',
+    metaDescription: 'Discover the best BBQ rubs and seasonings for ribs, brisket, chicken, and pork. Includes store-bought recommendations and homemade rub recipes.',
+    content: `
+## Best BBQ Rubs & Seasonings for 2026
+
+A great rub can make or break your BBQ. Whether you buy or make your own, here's everything you need to know.
+
+---
+
+## Our Top Store-Bought Picks
+
+### 🏆 Best Overall: Meat Church Holy Gospel
+
+The most versatile rub on the market. Works on literally everything — chicken, ribs, pork, beef, even vegetables.
+
+**Flavor Profile:** Garlic-forward with paprika sweetness and mild heat
+**Best On:** Chicken, pork, all-purpose
+
+[Buy on Amazon →](https://amazon.com/dp/B0787TGLZM?tag=meatlover-20) — $12.99
+
+---
+
+### 🥩 Best for Beef: Hardcore Carnivore Black
+
+The activated charcoal gives a striking black color and incredible bark. This rub was made for beef.
+
+**Flavor Profile:** Bold black pepper, garlic, coffee notes
+**Best On:** Brisket, steaks, beef ribs
+
+[Buy on Amazon →](https://amazon.com/dp/B07PNXV6GB?tag=meatlover-20) — $14.99
+
+---
+
+### 🍖 Best for Ribs: Killer Hogs The BBQ Rub
+
+Competition-proven by Malcom Reed. Sweet, savory, with just enough heat.
+
+**Flavor Profile:** Brown sugar sweetness, paprika, balanced spice
+**Best On:** Ribs, pulled pork, pork chops
+
+[Buy on Amazon →](https://amazon.com/dp/B00PJ8KZBA?tag=meatlover-20) — $11.99
+
+---
+
+### 🐔 Best for Poultry: Bad Byron's Butt Rub
+
+Don't let the name fool you — this is serious seasoning. Perfect balance for chicken.
+
+**Flavor Profile:** Herbs, garlic, mild sweetness
+**Best On:** Chicken, turkey, pork butt
+
+[Buy on Amazon →](https://amazon.com/dp/B000WHNRXG?tag=meatlover-20) — $8.99
+
+---
+
+### 🌶️ Best Hot Rub: Meat Church Holy Voodoo
+
+When you want heat with complexity. Cajun-inspired with serious kick.
+
+**Flavor Profile:** Cajun spices, cayenne, garlic, onion
+**Best On:** Wings, ribs, anything that needs heat
+
+[Buy on Amazon →](https://amazon.com/dp/B0787TJ6VJ?tag=meatlover-20) — $12.99
+
+---
+
+## DIY Rub Recipes
+
+### All-Purpose BBQ Rub
+- 1/4 cup paprika
+- 2 tbsp kosher salt
+- 2 tbsp black pepper
+- 2 tbsp garlic powder
+- 2 tbsp onion powder
+- 2 tbsp brown sugar
+- 1 tbsp chili powder
+- 1 tsp cayenne
+
+### Texas-Style Brisket Rub
+- 1/2 cup coarse black pepper (16-mesh)
+- 1/4 cup kosher salt
+- 2 tbsp garlic powder
+- 1 tbsp onion powder
+
+Keep it simple. The beef is the star.
+
+### Memphis Dry Rub (for ribs)
+- 1/4 cup paprika
+- 2 tbsp brown sugar
+- 1 tbsp black pepper
+- 1 tbsp kosher salt
+- 1 tbsp garlic powder
+- 1 tbsp onion powder
+- 1 tbsp cumin
+- 1 tsp mustard powder
+- 1 tsp celery salt
+
+### Carolina Mustard Rub
+- 2 tbsp yellow mustard powder
+- 2 tbsp brown sugar
+- 1 tbsp paprika
+- 1 tbsp garlic powder
+- 1 tbsp black pepper
+- 1 tbsp kosher salt
+- 1 tsp cayenne
+
+---
+
+## How to Apply Rubs
+
+### The Binder Debate
+Using a binder helps rub stick to meat. Options:
+- **Yellow mustard** — most common, burns off completely
+- **Olive oil** — neutral, adds moisture
+- **Hot sauce** — subtle heat layer
+- **Nothing** — works fine on moist meat
+
+### Application Tips
+1. Pat meat dry first
+2. Apply binder in thin coat
+3. Season from 12" above for even coverage
+4. Use more than you think — some falls off during cooking
+5. Let sit 30-60 minutes (or overnight in fridge)
+
+### Layering Rubs
+Some pitmasters layer multiple rubs:
+1. Base layer: salt + pepper
+2. Second layer: flavor rub
+3. During cook: spritz or glaze
+
+---
+
+## Rub Storage
+
+- Store in airtight containers
+- Away from heat and light
+- Homemade rubs last 3-6 months
+- Replace store-bought annually
+- Label with date made
+
+---
+
+## The Bottom Line
+
+Start with **Meat Church Holy Gospel** for an all-purpose option, add **Hardcore Carnivore Black** for beef, and experiment with homemade recipes as you develop your style.
+
+The best rub is the one that makes YOU excited to cook. 🔥
+    `,
+  },
+
+  'pulled-pork-recipe': {
+    title: 'Ultimate Pulled Pork: From Smoker to Sandwich',
+    description: 'How to smoke a pork butt for perfect pulled pork every time.',
+    category: 'Recipe',
+    readTime: '15 min read',
+    date: 'February 2026',
+    metaTitle: 'Smoked Pulled Pork Recipe - Step by Step | MeatLover',
+    metaDescription: 'Learn how to smoke the perfect pulled pork. Our step-by-step recipe covers selecting, seasoning, smoking, and shredding pork butt for incredible pulled pork sandwiches.',
+    content: `
+## Ultimate Smoked Pulled Pork
+
+Pulled pork is the most forgiving BBQ you can make. It's nearly impossible to mess up, tastes incredible, and feeds a crowd. Here's how to make the best you've ever had.
+
+---
+
+## Why Pork Butt?
+
+Despite the name, pork butt comes from the shoulder. It's loaded with intramuscular fat and connective tissue that breaks down during long cooks, resulting in incredibly tender, shreddable meat.
+
+**What to Buy:**
+- Bone-in pork butt (aka Boston butt)
+- 8-10 lbs for feeding 10-12 people
+- Look for good marbling
+- USDA Choice is fine
+
+**Expect:** ~50% yield (8 lb butt = ~4 lbs pulled pork)
+
+**Cost:** $2-3/lb — one of the cheapest BBQ proteins
+
+---
+
+## The Rub
+
+### Our Pulled Pork Rub
+- 1/4 cup brown sugar
+- 2 tbsp paprika
+- 2 tbsp kosher salt
+- 1 tbsp black pepper
+- 1 tbsp garlic powder
+- 1 tbsp onion powder
+- 1 tbsp cumin
+- 1 tsp cayenne
+- 1 tsp mustard powder
+
+### Application
+1. Trim any large fat caps to 1/4"
+2. Score remaining fat in crosshatch pattern
+3. Apply yellow mustard binder
+4. Coat generously with rub — every surface
+5. Refrigerate uncovered overnight (optional but recommended)
+
+---
+
+## The Smoke
+
+### Setup
+- **Temperature:** 225-250°F
+- **Wood:** Apple, cherry, hickory, or a blend
+- **Time:** Plan 1.5-2 hours per pound
+- **Target Internal Temp:** 195-205°F
+
+### Process
+
+**Hours 1-4: The Build**
+- Place pork butt fat-side up
+- Spritz with apple cider vinegar every hour after hour 2
+- Bark should be developing nicely
+
+**Hours 4-7: The Stall**
+- Internal temp hits 150-170°F and stalls
+- This is normal — evaporative cooling
+- Options: wait it out or wrap
+
+**Wrapping (Optional)**
+- Wrap in foil or butcher paper at 165°F
+- Add 1/2 cup apple juice to the wrap
+- This speeds up the cook by 2-3 hours
+
+**Hours 7-12: The Finish**
+- Continue cooking until 195-205°F
+- Probe should slide in like butter
+- The bone should wiggle freely
+
+---
+
+## The Rest
+
+**Critical step.** Do not skip this.
+
+1. Remove from smoker
+2. Vent foil briefly to stop cooking
+3. Re-wrap tightly
+4. Place in a cooler (no ice) with towels
+5. Rest 1-2 hours minimum (up to 4 hours)
+
+**Why:** Resting allows juices to redistribute and collagen to continue breaking down. A well-rested butt shreds 10x better.
+
+---
+
+## The Shred
+
+1. Remove bone — it should slide out clean
+2. Pull apart with meat claws or forks
+3. Discard any large fat chunks
+4. Pour reserved juices back over pulled pork
+5. Mix in additional rub or sauce to taste
+
+### Sauce Options
+- **Vinegar-based (Eastern NC):** Thin, tangy, lets smoke shine
+- **Tomato-based (Kansas City):** Sweet, thick, crowd-pleaser
+- **Mustard-based (South Carolina):** Tangy, unique, great on pork
+- **No sauce (Texas):** Let the meat speak for itself
+
+---
+
+## Serving Suggestions
+
+### Classic Pulled Pork Sandwich
+- Brioche bun, toasted
+- Generous pile of pulled pork
+- Coleslaw on top
+- Pickles
+- Your sauce of choice
+
+### Other Ideas
+- Pulled pork tacos with pickled onions
+- Pulled pork nachos
+- Mac and cheese topped with pulled pork
+- Pulled pork eggs Benedict
+- Loaded pulled pork fries
+
+---
+
+## Timeline for a Dinner Party
+
+| Time | Action |
+|------|--------|
+| Night Before | Season pork butt |
+| 5:00 AM | Start smoker, let it stabilize |
+| 6:00 AM | Pork butt on |
+| 12:00 PM | Wrap if desired |
+| 3:00 PM | Target temp reached |
+| 3:00-5:00 PM | Rest in cooler |
+| 5:00 PM | Shred and serve |
+
+---
+
+## Leftovers
+
+Pulled pork freezes beautifully for up to 3 months.
+
+1. Portion into zip-lock bags
+2. Add a splash of juice/sauce
+3. Remove air and seal flat
+4. Freeze for up to 3 months
+5. Reheat in a pan with a splash of apple juice
+
+---
+
+## Why This Recipe Works
+
+Pulled pork is the best BBQ for beginners because:
+- Pork butt is cheap ($2-3/lb)
+- It's nearly impossible to overcook
+- It feeds a crowd
+- Leftovers freeze perfectly
+- Everyone loves it
+
+Start here, build your confidence, then tackle ribs and brisket. 🐷
+    `,
+  },
+
+  'best-grilling-gifts': {
+    title: 'Best Grilling Gifts for BBQ Lovers (2026)',
+    description: 'Gift ideas for the grill master in your life — every budget covered.',
+    category: 'Buying Guide',
+    readTime: '9 min read',
+    date: 'February 2026',
+    metaTitle: 'Best Grilling Gifts 2026 - Ideas for BBQ Lovers | MeatLover',
+    metaDescription: 'Find the perfect gift for the grill enthusiast. From $20 stocking stuffers to premium smokers, we cover every budget with gifts they actually want.',
+    content: `
+## Best Grilling Gifts for BBQ Lovers
+
+Whether it's a birthday, holiday, or just because — here are the gifts that grill enthusiasts actually want.
+
+---
+
+## Under $25 — Stocking Stuffers
+
+### Grill Brush & Scraper — $15
+Every griller needs a quality brush. Replace theirs annually.
+
+[Buy on Amazon →](https://amazon.com/dp/B07RYVF36G?tag=meatlover-20)
+
+### Meat Claws — $13
+Essential for shredding pulled pork. Bear-paw style claws make it fun.
+
+[Buy on Amazon →](https://amazon.com/dp/B00HZLR30U?tag=meatlover-20)
+
+### Butcher Paper Roll — $22
+Pink butcher paper for wrapping brisket. The competition secret.
+
+[Buy on Amazon →](https://amazon.com/dp/B0745F12YR?tag=meatlover-20)
+
+### BBQ Rub Gift Set — $24
+Meat Church variety pack with Holy Gospel, Holy Voodoo, and Honey Hog.
+
+[Buy on Amazon →](https://amazon.com/dp/B09MYRK3WQ?tag=meatlover-20)
+
+---
+
+## $25-$75 — Great Gifts
+
+### ThermoPop Instant Thermometer — $35
+ThermoWorks quality at a gift-friendly price. Way better than any Amazon knockoff.
+
+[Buy on Amazon →](https://amazon.com/dp/B01IHHLB3W?tag=meatlover-20)
+
+### Grill Light — $30
+Magnetic LED light for nighttime grilling. Game changer for evening cooks.
+
+[Buy on Amazon →](https://amazon.com/dp/B0899MHXTP?tag=meatlover-20)
+
+### Cast Iron Smoker Box — $25
+Turns any gas grill into a smoker. Fill with wood chips for real smoke flavor.
+
+[Buy on Amazon →](https://amazon.com/dp/B000C4VNB4?tag=meatlover-20)
+
+### Heat-Resistant Gloves — $30
+BBQ gloves rated to 1,472°F. Essential for handling hot meat and grates.
+
+[Buy on Amazon →](https://amazon.com/dp/B00ZXAZ42S?tag=meatlover-20)
+
+### Custom Branding Iron — $45
+Personalized branding iron to mark steaks and burgers. Unique and fun.
+
+[Buy on Amazon →](https://amazon.com/dp/B01D2GFKA4?tag=meatlover-20)
+
+---
+
+## $75-$150 — Premium Gifts
+
+### Thermapen ONE — $105
+The gold standard of instant-read thermometers. 1-second readings, waterproof, built to last.
+
+[Buy on Amazon →](https://amazon.com/dp/B0CZ8M8LP4?tag=meatlover-20)
+
+### MEATER Plus Wireless Probe — $99
+True wireless meat thermometer with phone monitoring. No cables, no hassle.
+
+[Buy on Amazon →](https://amazon.com/dp/B07H8WTFHW?tag=meatlover-20)
+
+### Cutting Board (Large End-Grain) — $80
+A proper end-grain cutting board with juice grooves. Beautiful and functional.
+
+[Buy on Amazon →](https://amazon.com/dp/B00RPVGWUY?tag=meatlover-20)
+
+### Chimney Starter + Charcoal Bundle — $75
+Weber Rapidfire chimney starter plus a bag of Jealous Devil lump charcoal. The perfect fire-starting combo.
+
+---
+
+## $150-$500 — Big Gifts
+
+### Weber Original Kettle Premium 22" — $189
+The iconic grill. If they don't have one, they need one. Period.
+
+[Buy on Amazon →](https://amazon.com/dp/B00MKB5TXA?tag=meatlover-20)
+
+### Pit Barrel Cooker — $399
+The easiest smoker to use. Hang-and-forget cooking produces incredible results.
+
+[Buy on Amazon →](https://amazon.com/dp/B00J8B79PI?tag=meatlover-20)
+
+### ButcherBox Gift Subscription — $160-300
+3-6 months of premium meat delivery. Grass-fed beef, heritage pork, free-range chicken.
+
+[Try ButcherBox →](https://butcherbox.com/?ref=meatlover)
+
+### ThermoWorks Signals — $229
+4-probe wireless system with WiFi. For the data-driven griller.
+
+[Buy on Amazon →](https://amazon.com/dp/B07DTD9P5S?tag=meatlover-20)
+
+---
+
+## $500+ — Dream Gifts
+
+### Traeger Pro 780 — $1,299
+The best-selling pellet grill. WiFi-controlled, consistent, and produces incredible smoke.
+
+[Buy on Amazon →](https://amazon.com/dp/B08LCJK9CP?tag=meatlover-20)
+
+### Kamado Joe Classic III — $2,499
+The ultimate ceramic cooker. Smoke, grill, bake, sear — all in one.
+
+[Buy on Amazon →](https://amazon.com/dp/B08CC81QNH?tag=meatlover-20)
+
+### Snake River Farms Wagyu Box — $500+
+American wagyu brisket, steaks, and burgers. The ultimate meat gift.
+
+[Visit Snake River Farms →](https://snakeriverfarms.com/?ref=meatlover)
+
+---
+
+## Gift-Buying Tips
+
+1. **Don't guess on grills** — ask what they want first
+2. **Consumables are safe** — rubs, charcoal, wood chips are always welcome
+3. **Quality over quantity** — one great tool beats five cheap ones
+4. **Check what they have** — most grillers already own tongs and spatulas
+5. **Gift cards work** — ThermoWorks, Meat Church, and ButcherBox all offer them
+
+---
+
+## Our Top 3 Picks by Occasion
+
+### Birthday: Thermapen ONE ($105)
+The gift every cook needs but won't buy themselves.
+
+### Holiday: MEATER Plus + Rub Set ($125)
+Perfect combo of tech and flavor.
+
+### Just Because: ButcherBox Subscription ($160)
+The gift that keeps giving — premium meat delivered monthly.
+
+Happy gifting! 🎁🔥
+    `,
+  },
+
+  'smoked-chicken-wings': {
+    title: 'Crispy Smoked Chicken Wings: The Best Method',
+    description: 'Get restaurant-quality wings at home with smoke and crunch.',
+    category: 'Recipe',
+    readTime: '10 min read',
+    date: 'February 2026',
+    metaTitle: 'Crispy Smoked Chicken Wings Recipe | MeatLover',
+    metaDescription: 'Make the crispiest smoked chicken wings with our proven method. Baking powder trick + smoke + high heat finish for perfect wings every time.',
+    content: `
+## Crispy Smoked Chicken Wings
+
+The secret to perfect smoked wings? They need to be crispy AND smoky. Most smoked wings come out with rubbery skin. Not these. Here's the method that gets you both.
+
+---
+
+## The Secret: Baking Powder
+
+The #1 trick for crispy smoked wings: **toss them in baking powder before smoking.** Baking powder raises the skin's pH, which helps it dry out and crisp up at lower temperatures.
+
+**Important:** Baking POWDER, not baking SODA. Baking soda will taste metallic and terrible.
+
+---
+
+## Ingredients
+
+- 3 lbs chicken wings (flats and drums separated)
+- 1 tbsp baking powder (aluminum-free)
+- 1 tbsp kosher salt
+- 1 tsp black pepper
+- 1 tsp garlic powder
+- 1 tsp onion powder
+- 1 tsp smoked paprika
+
+### For Buffalo Sauce
+- 1/2 cup Frank's RedHot
+- 4 tbsp melted butter
+- 1 tbsp honey
+- 1 tsp garlic powder
+
+### For Dry Rub (Alternative)
+- 2 tbsp Meat Church Holy Voodoo
+- 1 tbsp brown sugar
+
+---
+
+## Step 1: Prep
+
+1. Pat wings completely dry with paper towels (this is critical)
+2. Toss wings with baking powder until evenly coated
+3. Add salt, pepper, garlic, onion, and paprika
+4. Place on a wire rack over a baking sheet
+5. Refrigerate uncovered for 2-24 hours (overnight is best)
+
+**Why Uncovered?** This dries out the skin further, which = more crunch.
+
+---
+
+## Step 2: Smoke (1 Hour)
+
+**Temperature:** 225-250°F
+**Wood:** Cherry or apple (mild and sweet)
+
+1. Place wings directly on grill grates
+2. Smoke for 60 minutes at 225°F
+3. Don't flip — let smoke work its magic
+4. Wings should hit about 140°F internal
+
+---
+
+## Step 3: Crisp Up (20-30 Minutes)
+
+This is where the magic happens. Crank the heat.
+
+### Option A: High-Heat Finish on Grill
+1. Increase grill temp to 375-400°F
+2. Cook 20-30 minutes, flipping once
+3. Skin should be golden and crackling
+
+### Option B: Deep Fry Finish
+1. Heat oil to 375°F
+2. Fry wings 3-4 minutes until crispy
+3. Maximum crunch, but more cleanup
+
+### Option C: Air Fryer Finish
+1. Air fry at 400°F for 8-10 minutes
+2. Flip halfway
+3. Great compromise of crunch and ease
+
+---
+
+## Step 4: Sauce or Season
+
+### Buffalo Wings
+1. Melt butter in saucepan
+2. Add Frank's RedHot, honey, garlic powder
+3. Toss wings in sauce immediately after cooking
+4. Serve with blue cheese (not ranch — this is non-negotiable 😤)
+
+### Dry Rub Wings
+1. Toss hot wings in additional dry rub
+2. The heat activates the spices
+3. Serve with ranch (OK for dry rub wings)
+
+### Other Sauce Ideas
+- **Honey garlic:** Honey + soy + garlic + ginger
+- **Lemon pepper:** Butter + lemon juice + cracked pepper
+- **Korean BBQ:** Gochujang + honey + soy + sesame
+- **Alabama white sauce:** Mayo + vinegar + pepper + horseradish
+
+---
+
+## Pro Tips
+
+### 1. Buy Whole Wings and Cut Them
+Cheaper and you get better quality. Cut at both joints, discard (or stock) the tips.
+
+### 2. Don't Crowd the Grill
+Wings need airflow for crispy skin. Give them space.
+
+### 3. Internal Temperature
+Chicken wings are best at **175-185°F internal** — higher than breast meat. The extra fat and collagen in wings need more heat to render properly.
+
+### 4. Make Extra
+You will always want more wings than you think. Plan 1-1.5 lbs per person.
+
+---
+
+## Timing
+
+| Time | Action |
+|------|--------|
+| Night Before | Prep and season, refrigerate uncovered |
+| Game Day - 2hr | Start smoker at 225°F |
+| Game Day - 1.5hr | Wings on smoker |
+| Game Day - 30min | Crank to 400°F for crisp |
+| Game Day | Sauce, serve, dominate |
+
+Total active time: ~2 hours
+
+---
+
+## Recommended Gear
+
+- [Weber Kettle](https://amazon.com/dp/B00MKB5TXA?tag=meatlover-20) — Perfect for the high-heat finish ($189)
+- [ThermoWorks Thermapen](https://amazon.com/dp/B0CZ8M8LP4?tag=meatlover-20) — Check wing temps fast ($105)
+- [Wire Cooling Racks](https://amazon.com/dp/B01N1QLGA2?tag=meatlover-20) — For overnight drying ($15)
+
+---
+
+## Why This Method Works
+
+The combination of:
+1. **Baking powder** — breaks down skin proteins for crispiness
+2. **Overnight dry** — removes moisture from skin surface
+3. **Low smoke** — infuses flavor without rendering fat fully
+4. **High heat finish** — crisps skin and renders remaining fat
+
+Result: Wings that are smoky, juicy inside, and shatteringly crispy outside.
+
+These will be the best wings you've ever made. Guaranteed. 🍗
+    `,
+  },
+
   'how-to-clean-your-grill': {
     title: 'How to Clean Your Grill Like a Pro',
     description: 'Keep your grill in top shape with our deep-cleaning guide.',
