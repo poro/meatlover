@@ -31,6 +31,8 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <head>
+        <meta name="google-adsense-account" content="ca-pub-9848489005315877" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9848489005315877" crossOrigin="anonymous"></script>
         <script defer src="https://analytics.game-agents.com/script.js" data-website-id="91324878-25a2-4a81-a594-50b59404cee7"></script>
       </head>
       <body className={`${inter.variable} antialiased bg-neutral-950 text-white min-h-screen flex flex-col`}>
