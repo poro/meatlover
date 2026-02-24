@@ -70,7 +70,7 @@ export const products: Product[] = [
       'Hopper Capacity': '18 lbs',
       'Weight': '124 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/s?k=traeger+pro+575&tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/s?k=traeger+pro+575&tag=dufus0b-20',
     asin: 'B0BZVL2TGD',
     featured: true,
     best_for: 'Best Overall Pellet Grill',
@@ -95,7 +95,7 @@ export const products: Product[] = [
       'Hopper Capacity': '20 lbs',
       'Weight': '150 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/s?k=traeger+ironwood+650&tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/s?k=traeger+ironwood+650&tag=dufus0b-20',
     asin: 'B0BZVKW7QG',
     featured: true,
     best_for: 'Best Premium Pellet Grill',
@@ -120,7 +120,7 @@ export const products: Product[] = [
       'Hopper Capacity': '31 lbs',
       'Weight': '151 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B08CKB7JRM?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B08CKB7JRM?tag=dufus0b-20',
     asin: 'B08CKB7JRM',
     best_for: 'Best Budget Pellet Grill'
   },
@@ -143,7 +143,7 @@ export const products: Product[] = [
       'Hopper Capacity': '22 lbs',
       'Weight': '150 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B09FPNFYQ2?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B09FPNFYQ2?tag=dufus0b-20',
     asin: 'B09FPNFYQ2',
     expert_tested: true
   },
@@ -166,7 +166,7 @@ export const products: Product[] = [
       'Hopper Capacity': '20 lbs',
       'Weight': '98 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B09FSJWVCQ?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B09FSJWVCQ?tag=dufus0b-20',
     asin: 'B09FSJWVCQ'
   },
   {
@@ -188,7 +188,7 @@ export const products: Product[] = [
       'Hopper Capacity': '40 lbs',
       'Weight': '200 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B085TG6MRC?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B085TG6MRC?tag=dufus0b-20',
     asin: 'B085TG6MRC',
     expert_tested: true,
     best_for: 'Best Build Quality'
@@ -212,7 +212,7 @@ export const products: Product[] = [
       'Hopper Capacity': '18 lbs',
       'Weight': '165 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B09GB1Q9SM?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B09GB1Q9SM?tag=dufus0b-20',
     asin: 'B09GB1Q9SM'
   },
   {
@@ -234,7 +234,7 @@ export const products: Product[] = [
       'Hopper Capacity': '18 lbs',
       'Weight': '143 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B09RSYJ8Y2?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B09RSYJ8Y2?tag=dufus0b-20',
     asin: 'B09RSYJ8Y2',
     best_for: 'Best for High-Heat Searing'
   },
@@ -261,7 +261,7 @@ export const products: Product[] = [
       'Lid Material': 'Porcelain-enameled steel',
       'Weight': '32 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B00MKB5TXA?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B00MKB5TXA?tag=dufus0b-20',
     asin: 'B00MKB5TXA',
     featured: true,
     best_for: 'Best Value Charcoal Grill',
@@ -286,7 +286,7 @@ export const products: Product[] = [
       'Material': 'Ceramic',
       'Weight': '188 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B08FXMHSJZ?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B08FXMHSJZ?tag=dufus0b-20',
     asin: 'B08FXMHSJZ',
     featured: true,
     best_for: 'Best Kamado Grill',
@@ -311,7 +311,7 @@ export const products: Product[] = [
       'Material': 'Ceramic',
       'Weight': '162 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B003D6HPDG?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B003D6HPDG?tag=dufus0b-20',
     asin: 'B003D6HPDG',
     expert_tested: true
   },
@@ -334,7 +334,7 @@ export const products: Product[] = [
       'Lid Thermometer': 'Built-in',
       'Weight': '35 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B0098HR0XK?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B0098HR0XK?tag=dufus0b-20',
     asin: 'B0098HR0XK',
     best_for: 'Best Kettle Upgrade'
   },
@@ -357,7 +357,7 @@ export const products: Product[] = [
       'Material': 'Triple-wall steel',
       'Weight': '97 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B00CHLT88C?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B00CHLT88C?tag=dufus0b-20',
     asin: 'B00CHLT88C',
     best_for: 'Best Budget Kamado'
   },
@@ -380,7 +380,7 @@ export const products: Product[] = [
       'Features': '4-point venting system',
       'Weight': '55 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B08DCMPWZ3?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B08DCMPWZ3?tag=dufus0b-20',
     asin: 'B08DCMPWZ3',
     expert_tested: true
   },
@@ -407,7 +407,7 @@ export const products: Product[] = [
       'Burners': '3 main + Sear + Side',
       'Weight': '160 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B09LXZK1KM?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B09LXZK1KM?tag=dufus0b-20',
     asin: 'B09LXZK1KM',
     featured: true,
     best_for: 'Best Premium Gas Grill',
@@ -432,7 +432,7 @@ export const products: Product[] = [
       'Burners': '3',
       'Weight': '114 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B07793V9NK?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B07793V9NK?tag=dufus0b-20',
     asin: 'B07793V9NK',
     best_for: 'Best Mid-Range Gas Grill'
   },
@@ -455,7 +455,7 @@ export const products: Product[] = [
       'Burners': '4 + Side burner',
       'Weight': '98 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B0B8RJQTK7?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B0B8RJQTK7?tag=dufus0b-20',
     asin: 'B0B8RJQTK7',
     best_for: 'Best Budget Gas Grill'
   },
@@ -478,7 +478,7 @@ export const products: Product[] = [
       'Burners': '4 main + IR Side + IR Rear',
       'Weight': '184 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B07ND7HZ56?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B07ND7HZ56?tag=dufus0b-20',
     asin: 'B07ND7HZ56',
     expert_tested: true,
     best_for: 'Best Luxury Gas Grill'
@@ -502,7 +502,7 @@ export const products: Product[] = [
       'Fuel': 'LP Gas (1lb or 20lb with adapter)',
       'Weight': '42 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B00FGEHG7Y?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B00FGEHG7Y?tag=dufus0b-20',
     asin: 'B00FGEHG7Y',
     best_for: 'Best Portable Gas Grill'
   },
@@ -525,7 +525,7 @@ export const products: Product[] = [
       'Burners': '6 + IR Sear + Side',
       'Weight': '165 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B09JZ4GZJ7?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B09JZ4GZJ7?tag=dufus0b-20',
     asin: 'B09JZ4GZJ7'
   },
 
@@ -551,7 +551,7 @@ export const products: Product[] = [
       'Firebox': 'Offset side-mounted',
       'Weight': '226 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B00KNTXJ3C?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B00KNTXJ3C?tag=dufus0b-20',
     asin: 'B00KNTXJ3C',
     featured: true,
     best_for: 'Best Entry-Level Offset',
@@ -576,7 +576,7 @@ export const products: Product[] = [
       'Power': 'Electric',
       'Weight': '48 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B08LDN8Y91?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B08LDN8Y91?tag=dufus0b-20',
     asin: 'B08LDN8Y91',
     best_for: 'Best Beginner Smoker'
   },
@@ -599,7 +599,7 @@ export const products: Product[] = [
       'Diameter': '22.5 inches',
       'Weight': '68 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B001I8ZTJA?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B001I8ZTJA?tag=dufus0b-20',
     asin: 'B001I8ZTJA',
     featured: true,
     best_for: 'Best Vertical Charcoal Smoker',
@@ -624,7 +624,7 @@ export const products: Product[] = [
       'Diameter': '18.5 inches',
       'Weight': '57 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B001I8ZTJ0?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B001I8ZTJ0?tag=dufus0b-20',
     asin: 'B001I8ZTJ0'
   },
   {
@@ -646,7 +646,7 @@ export const products: Product[] = [
       'Hopper Capacity': '10 lbs lump / 16 lbs briquettes',
       'Weight': '140 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B08GHQR6K9?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B08GHQR6K9?tag=dufus0b-20',
     asin: 'B08GHQR6K9',
     best_for: 'Best Gravity-Fed Smoker',
     expert_tested: true
@@ -670,7 +670,7 @@ export const products: Product[] = [
       'Fuel': 'Charcoal',
       'Weight': '57 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B00J8B79PI?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B00J8B79PI?tag=dufus0b-20',
     asin: 'B00J8B79PI',
     best_for: 'Easiest Smoker to Use'
   },
@@ -693,7 +693,7 @@ export const products: Product[] = [
       'Controller': 'ACS',
       'Weight': '325 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B07W5V7PDZ?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B07W5V7PDZ?tag=dufus0b-20',
     asin: 'B07W5V7PDZ',
     best_for: 'Best Competition Smoker',
     expert_tested: true
@@ -717,7 +717,7 @@ export const products: Product[] = [
       'Features': 'TRU-Infrared + smoker box',
       'Weight': '25 lbs'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B00CGWNNTM?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B00CGWNNTM?tag=dufus0b-20',
     asin: 'B00CGWNNTM'
   },
 
@@ -743,7 +743,7 @@ export const products: Product[] = [
       'Range': '-58°F to 572°F',
       'Battery Life': '2,000+ hours'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B0CZ8M8LP4?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B0CZ8M8LP4?tag=dufus0b-20',
     asin: 'B0CZ8M8LP4',
     featured: true,
     best_for: 'Best Instant-Read Thermometer',
@@ -768,7 +768,7 @@ export const products: Product[] = [
       'Ambient Sensor': 'Up to 527°F',
       'Battery': 'Rechargeable (24hr life)'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B07H8WTFHW?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B07H8WTFHW?tag=dufus0b-20',
     asin: 'B07H8WTFHW',
     expert_tested: true,
     best_for: 'Best Wireless Probe'
@@ -792,7 +792,7 @@ export const products: Product[] = [
       'Range': 'Unlimited via WiFi',
       'Battery': '16+ hours'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B07DTD9P5S?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B07DTD9P5S?tag=dufus0b-20',
     asin: 'B07DTD9P5S',
     best_for: 'Best Multi-Probe Thermometer'
   },
@@ -815,7 +815,7 @@ export const products: Product[] = [
       'Range': '150 ft',
       'Battery': '40+ hours'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B076QDC5VL?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B076QDC5VL?tag=dufus0b-20',
     asin: 'B076QDC5VL',
     best_for: 'Best Budget Wireless Thermometer'
   },
@@ -838,7 +838,7 @@ export const products: Product[] = [
       'Range': '-58°F to 572°F',
       'Battery': '5,000+ hours'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B0C2CLKBNF?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B0C2CLKBNF?tag=dufus0b-20',
     asin: 'B0C2CLKBNF',
     best_for: 'Best Budget Instant-Read'
   },
@@ -861,7 +861,7 @@ export const products: Product[] = [
       'Features': 'Blower control, cloud logging',
       'Battery': '24+ hours'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B08Q3VBTQB?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B08Q3VBTQB?tag=dufus0b-20',
     asin: 'B08Q3VBTQB',
     expert_tested: true,
     best_for: 'Best for Automated Pit Control'
@@ -888,7 +888,7 @@ export const products: Product[] = [
       'Fits': 'Spirit 300 series, Spirit II 300 series',
       'Features': 'UV resistant, breathable'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B0CW8BCFCF?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B0CW8BCFCF?tag=dufus0b-20',
     asin: 'B0CW8BCFCF'
   },
   {
@@ -909,7 +909,7 @@ export const products: Product[] = [
       'Material': 'Aluminized steel',
       'Handle': 'Thermoplastic'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B000WEOQV8?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B000WEOQV8?tag=dufus0b-20',
     asin: 'B000WEOQV8',
     featured: true,
     best_for: 'Essential Charcoal Tool'
@@ -932,7 +932,7 @@ export const products: Product[] = [
       'Best For': 'Brisket, Steaks, Burgers',
       'Heat Level': 'Mild'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B01MY3FM6Y?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B01MY3FM6Y?tag=dufus0b-20',
     asin: 'B01MY3FM6Y'
   },
   {
@@ -953,7 +953,7 @@ export const products: Product[] = [
       'Pieces': '3 interlocking panels',
       'Features': 'Raised rails, GrateTool included'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B00164TLPE?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B00164TLPE?tag=dufus0b-20',
     asin: 'B00164TLPE',
     expert_tested: true
   },
@@ -975,7 +975,7 @@ export const products: Product[] = [
       'Best For': 'Ribs, Pork, Chicken, Brisket',
       'Heat Level': 'Mild'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B00O8YLS9A?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B00O8YLS9A?tag=dufus0b-20',
     asin: 'B00O8YLS9A'
   },
   {
@@ -996,7 +996,7 @@ export const products: Product[] = [
       'Material': '18-gauge stainless steel',
       'Features': 'Water reservoir, coal basket'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B06XHJ42KM?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B06XHJ42KM?tag=dufus0b-20',
     asin: 'B06XHJ42KM',
     expert_tested: true,
     best_for: 'Best Kettle Upgrade'
@@ -1019,7 +1019,7 @@ export const products: Product[] = [
       'Wood': 'Central American hardwood',
       'Type': 'Super Premium Lump'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B01LXRIHXK?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B01LXRIHXK?tag=dufus0b-20',
     asin: 'B01LXRIHXK',
     best_for: 'Best Premium Lump Charcoal'
   },
@@ -1041,7 +1041,7 @@ export const products: Product[] = [
       'Type': 'Uncoated, unwaxed',
       'Use': 'Wrapping brisket, ribs, pork'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B074Q93V95?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B074Q93V95?tag=dufus0b-20',
     asin: 'B074Q93V95'
   },
   {
@@ -1062,7 +1062,7 @@ export const products: Product[] = [
       'Features': 'Heat resistant to 475°F',
       'Included': '2 claws'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B003IWI66W?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B003IWI66W?tag=dufus0b-20',
     asin: 'B003IWI66W'
   },
   {
@@ -1084,7 +1084,7 @@ export const products: Product[] = [
       'Display': 'Backlit LCD',
       'Battery': 'AAA (not included)'
     },
-    affiliate_url: 'https://www.amazon.com/dp/B01GE77QT0?tag=meatlover-20',
+    affiliate_url: 'https://www.amazon.com/dp/B01GE77QT0?tag=dufus0b-20',
     asin: 'B01GE77QT0',
     best_for: 'Best Value Wireless Thermometer'
   }
