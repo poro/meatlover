@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { Star, ExternalLink, Check, X } from 'lucide-react'
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -19,9 +20,19 @@ export default function SubscriptionCard({ subscription, rank }: SubscriptionCar
           </div>
         )}
         
-        {/* Logo placeholder */}
-        <div className="aspect-[3/1] bg-neutral-800 rounded-lg flex items-center justify-center mb-4">
-          <span className="text-2xl font-bold text-neutral-600">{subscription.name}</span>
+        {/* Service image */}
+        <div className="aspect-[3/1] bg-neutral-800 rounded-lg overflow-hidden mb-4 relative">
+          {subscription.image_url ? (
+            <img
+              src={subscription.image_url}
+              alt={subscription.name}
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <div className="w-full h-full flex items-center justify-center">
+              <span className="text-2xl font-bold text-neutral-600">{subscription.name}</span>
+            </div>
+          )}
         </div>
 
         <div className="flex items-center justify-between">
