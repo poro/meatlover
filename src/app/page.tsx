@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, Flame, Star, Truck, Shield, Award, Trophy, ChevronRight } from 'lucide-react'
+import { ArrowRight, Flame, Star, Truck, Shield, Award, Trophy, ChevronRight, BookOpen, Lightbulb } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
@@ -16,7 +16,7 @@ const bestOfPicks = [
   },
   {
     category: 'Best Smokers',
-    href: '/smokers', 
+    href: '/smokers',
     products: products.filter(p => p.category === 'smoker' && p.best_for).slice(0, 3)
   },
   {
@@ -26,10 +26,30 @@ const bestOfPicks = [
   }
 ]
 
+const bbqTips = [
+  {
+    title: 'Always Preheat Your Grill',
+    tip: 'Give your grill 10-15 minutes to preheat with the lid closed. This burns off residue, sterilizes the grates, and ensures even cooking from the moment you place your food down.',
+  },
+  {
+    title: 'Use a Meat Thermometer',
+    tip: 'Stop guessing. An instant-read thermometer is the single best investment you can make. Pull steaks at 130F for medium-rare, chicken at 165F, and pork at 145F.',
+  },
+  {
+    title: 'Rest Your Meat After Cooking',
+    tip: 'Let steaks rest 5-10 minutes and large cuts like brisket rest 1-2 hours. This lets juices redistribute so they stay in the meat instead of running onto your cutting board.',
+  },
+  {
+    title: 'Master the Two-Zone Fire',
+    tip: 'Set up one hot side for searing and one cooler side for indirect cooking. This gives you control — you can sear a steak then move it to finish gently, or keep food warm without burning it.',
+  },
+]
+
 export default function HomePage() {
   const featuredProducts = getFeaturedProducts().slice(0, 6)
   const topSubscriptions = subscriptions.slice(0, 3)
   const featuredGuides = guides.filter(g => g.featured).slice(0, 4)
+  const latestGuides = guides.slice(0, 6)
 
   return (
     <div>
@@ -90,6 +110,79 @@ export default function HomePage() {
               <Shield className="h-8 w-8 text-orange-500" />
               <span className="text-sm text-neutral-300">Trusted Since 2020</span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Latest Guides & Articles */}
+      <section className="py-16 lg:py-24 bg-gradient-to-b from-neutral-950 to-neutral-900">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <Badge className="bg-green-500/20 text-green-400 border-green-500/50 mb-4">
+              <BookOpen className="h-3 w-3 mr-1" />
+              Fresh Content
+            </Badge>
+            <h2 className="text-3xl lg:text-4xl font-bold text-white mb-4">Latest Guides &amp; Articles</h2>
+            <p className="text-neutral-400 max-w-2xl mx-auto">
+              In-depth cooking guides, regional BBQ deep dives, and technique tutorials written by our editorial team.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {latestGuides.map((guide) => (
+              <Link key={guide.slug} href={`/guides/${guide.slug}`}>
+                <Card className="bg-neutral-800 border-neutral-700 hover:border-orange-500/50 transition-all h-full group">
+                  <CardHeader className="pb-2">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Badge className="w-fit bg-neutral-700 text-neutral-300 border-neutral-600">
+                        {guide.category}
+                      </Badge>
+                      <span className="text-xs text-neutral-500">{guide.date}</span>
+                    </div>
+                    <h3 className="text-lg font-bold text-white group-hover:text-orange-500 transition-colors line-clamp-2">
+                      {guide.title}
+                    </h3>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-neutral-400 text-sm line-clamp-3">{guide.description}</p>
+                    <p className="text-xs text-orange-500 mt-3 font-medium">{guide.readTime} &rarr;</p>
+                  </CardContent>
+                </Card>
+              </Link>
+            ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <Link href="/guides">
+              <Button variant="outline" className="border-neutral-700">
+                Browse All Guides &amp; Articles
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* BBQ Quick Tips */}
+      <section className="py-16 bg-neutral-900">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-10">
+            <Badge className="bg-amber-500/20 text-amber-400 border-amber-500/50 mb-4">
+              <Lightbulb className="h-3 w-3 mr-1" />
+              Quick Tips
+            </Badge>
+            <h2 className="text-3xl font-bold text-white mb-4">BBQ Tips From Our Pitmasters</h2>
+            <p className="text-neutral-400 max-w-2xl mx-auto">
+              Small changes that make a big difference. Bookmark these fundamentals.
+            </p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {bbqTips.map((item) => (
+              <div key={item.title} className="bg-neutral-800 border border-neutral-700 rounded-xl p-6">
+                <h3 className="text-white font-bold mb-2">{item.title}</h3>
+                <p className="text-neutral-400 text-sm leading-relaxed">{item.tip}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

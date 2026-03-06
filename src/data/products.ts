@@ -36,7 +36,7 @@ export type Guide = {
   slug: string
   title: string
   description: string
-  category: 'Buying Guide' | 'Tutorial' | 'Comparison' | 'Recipe'
+  category: 'Buying Guide' | 'Tutorial' | 'Comparison' | 'Recipe' | 'Regional BBQ' | 'Educational'
   readTime: string
   date: string
   featured: boolean
@@ -1304,6 +1304,145 @@ export const guides: Guide[] = [
     date: 'November 2025',
     featured: false,
     relatedProducts: ['4', '21', '23']
+  },
+  {
+    slug: 'texas-style-brisket-guide',
+    title: 'How to Smoke a Texas-Style Brisket: The Complete Guide',
+    description: 'Everything you need to know about smoking a competition-worthy Texas brisket — from selecting and trimming to the Dalmatian rub, managing the stall, and slicing.',
+    category: 'Tutorial',
+    readTime: '18 min read',
+    date: 'March 2026',
+    featured: true,
+    relatedProducts: ['7', '9', '10']
+  },
+  {
+    slug: 'carolina-bbq-styles',
+    title: 'Carolina BBQ Styles: Eastern NC, Western NC & SC Mustard Sauce Traditions',
+    description: 'A deep dive into the three distinct Carolina BBQ traditions — whole hog with vinegar sauce, Lexington-style pork shoulder, and South Carolina mustard-based Carolina Gold.',
+    category: 'Regional BBQ',
+    readTime: '14 min read',
+    date: 'March 2026',
+    featured: true
+  },
+  {
+    slug: 'kansas-city-bbq-guide',
+    title: 'Kansas City BBQ: Burnt Ends, Ribs & The Sweet Sauce Capital',
+    description: 'KC BBQ is all about sweet, thick sauce, slow-smoked meats, and legendary burnt ends. Learn the history, the technique, and the iconic restaurants.',
+    category: 'Regional BBQ',
+    readTime: '14 min read',
+    date: 'March 2026',
+    featured: true
+  },
+  {
+    slug: 'charcoal-vs-pellet-grills',
+    title: 'Charcoal vs Pellet Grills: An Honest Comparison',
+    description: 'An honest, balanced comparison of charcoal and pellet grills covering flavor, convenience, cost, temperature control, and which type suits your cooking style.',
+    category: 'Comparison',
+    readTime: '12 min read',
+    date: 'March 2026',
+    featured: false,
+    relatedProducts: ['1', '3', '4', '15']
+  },
+  {
+    slug: 'reverse-sear-method',
+    title: 'The Reverse Sear Method: How to Cook a Perfect Steak Every Time',
+    description: 'Master the reverse sear technique for edge-to-edge perfect steaks. Step-by-step guide covering temperatures, timing, and the science behind the method.',
+    category: 'Tutorial',
+    readTime: '10 min read',
+    date: 'March 2026',
+    featured: true
+  },
+  {
+    slug: 'meat-smoking-wood-guide',
+    title: 'The Complete Guide to Smoking Woods: Which Wood for Which Meat',
+    description: 'Hickory, mesquite, cherry, apple, oak — learn which smoking woods pair best with which meats and how to use chunks, chips, and pellets effectively.',
+    category: 'Tutorial',
+    readTime: '12 min read',
+    date: 'March 2026',
+    featured: false
+  },
+  {
+    slug: 'bbq-rub-recipes',
+    title: '5 Homemade BBQ Rub Recipes: Memphis, Texas, Carolina, KC & All-Purpose',
+    description: 'Five tried-and-true homemade BBQ rub recipes with exact measurements — Memphis, Texas, Carolina, Kansas City, and a versatile all-purpose blend.',
+    category: 'Recipe',
+    readTime: '11 min read',
+    date: 'March 2026',
+    featured: false
+  },
+  {
+    slug: 'grill-temperature-guide',
+    title: 'Grill Temperature Zones & Heat Management: A Complete Guide',
+    description: 'Understand direct vs indirect heat, two-zone and three-zone setups, temperature ranges for different foods, and how to manage vents and dampers.',
+    category: 'Tutorial',
+    readTime: '10 min read',
+    date: 'March 2026',
+    featured: false
+  },
+  {
+    slug: 'beef-cuts-explained',
+    title: 'Beef Cuts Explained: A Complete Guide to Every Cut and How to Cook It',
+    description: 'From chuck to brisket to tenderloin — a comprehensive guide to beef primal cuts, retail cuts, USDA grading, and the best cooking method for each.',
+    category: 'Educational',
+    readTime: '14 min read',
+    date: 'March 2026',
+    featured: false
+  },
+  {
+    slug: 'pork-shoulder-pulled-pork',
+    title: 'The Complete Pulled Pork Guide: From Raw Pork Shoulder to Perfect Sandwich',
+    description: 'A start-to-finish pulled pork guide covering cut selection, seasoning, smoker setup, the stall, shredding technique, and serving suggestions.',
+    category: 'Recipe',
+    readTime: '16 min read',
+    date: 'March 2026',
+    featured: false,
+    relatedProducts: ['1', '7', '10']
+  },
+  {
+    slug: 'bbq-for-beginners',
+    title: 'BBQ for Beginners: Everything You Need to Know to Start Grilling',
+    description: 'A complete starter guide covering essential equipment, choosing your first grill, charcoal and gas basics, easy first cooks, and the most common beginner mistakes.',
+    category: 'Tutorial',
+    readTime: '13 min read',
+    date: 'March 2026',
+    featured: true,
+    relatedProducts: ['3', '10', '13']
+  },
+  {
+    slug: 'low-and-slow-smoking',
+    title: 'The Science of Low-and-Slow Smoking: Why Time and Temperature Matter',
+    description: 'The science behind why low-and-slow smoking works — collagen breakdown, the stall, smoke ring formation, bark development, and why resting matters.',
+    category: 'Educational',
+    readTime: '13 min read',
+    date: 'March 2026',
+    featured: false
+  },
+  {
+    slug: 'grilling-safety-tips',
+    title: 'Grilling Safety: Essential Food Safety, Fire Safety & Maintenance Tips',
+    description: 'Stay safe at the grill with this comprehensive guide to fire safety, food safety temperatures, grill maintenance, and proper startup and shutdown procedures.',
+    category: 'Tutorial',
+    readTime: '11 min read',
+    date: 'March 2026',
+    featured: false
+  },
+  {
+    slug: 'meat-delivery-comparison-2026',
+    title: 'Best Online Meat Delivery Services in 2026: An Honest Comparison',
+    description: 'An honest comparison of ButcherBox, Crowd Cow, Porter Road, Snake River Farms, Omaha Steaks, and Wild Fork — pricing, quality, sourcing, and who each is best for.',
+    category: 'Comparison',
+    readTime: '15 min read',
+    date: 'March 2026',
+    featured: true
+  },
+  {
+    slug: 'seasonal-grilling-calendar',
+    title: 'The Seasonal Grilling Calendar: What to Cook Every Month of the Year',
+    description: 'A month-by-month guide to what to grill and smoke throughout the year — from Super Bowl wings to Thanksgiving smoked turkey and everything in between.',
+    category: 'Recipe',
+    readTime: '12 min read',
+    date: 'March 2026',
+    featured: false
   }
 ]
 
